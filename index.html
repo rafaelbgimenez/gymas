@@ -63,6 +63,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .free .spl{grid-area:s}
 .spk{display:grid;gap:12px}
 #f-split .spk{margin-top:12px}
+.seta{margin-left:6px;vertical-align:-1px;transition:transform .15s}.seta.on{transform:rotate(180deg)}@media (prefers-reduced-motion:reduce){.seta{transition:none}}
 .spg{display:grid;grid-template-columns:9.5em minmax(0,1fr);gap:8px 16px;align-items:start}
 .spg>h3{font:700 18px/1.1 var(--fd);margin:0;padding-top:12px}
 .spo{display:flex;flex-wrap:wrap;gap:8px}
@@ -490,7 +491,7 @@ a.cit::after{content:none}
           <li>Pelo menos um exercício na posição alongada por músculo, e variação planejada no 2º dia (Kassiano 2022).</li>
           <li>Reps: 5–9 em quase tudo; 4–6 nos pesados com barra (agachamento livre, stiff, terra); 8–12 em elevação lateral, crucifixo inverso, abdutora, adutora e alguns de braço. Nunca acima de 12, sempre perto da falha (Robinson 2024). A base mostra hipertrofia parecida de 6 a 20 reps (Morton 2016): o 4–6 fica um pouco abaixo e é estilo da ficha, como o top set. Iniciante faz 5–9 no lugar do 4–6.</li>
           <li>Descanso de 3 min nos compostos e 2 nos outros: acima de 90 s a hipertrofia já não muda (Singer 2024), o resto é pra render nas séries seguintes.</li>
-          <li>O tempo do treino limita as séries (~3 min por série). Quando falta espaço, sai primeiro de Manter, depois de Normal.</li>
+          <li>O tempo do treino limita as séries: cada exercício custa uns 4 min de montagem e aquecimento, mais ~3 min por série. A conta foi calibrada em treinos reais. Quando falta espaço, sai primeiro de Manter, depois de Normal.</li>
           <li>Iniciante: 70% do volume, 2 séries por exercício e 2–3 RIR. O RIR é escolha do gerador; a base só pede técnica antes de carga.</li>
           <li>Treino feminino: mais ênfase nos inferiores. Os treinos começam pelas pernas e pelo glúteo, e as divisões sugeridas têm mais volume de perna. As regras são as mesmas pros dois (Roberts 2020; Refalo 2025).</li>
           <li>Automática: testa as divisões possíveis pros seus dias e fica com a que encaixa mais volume sem furar essas regras. No empate, fica com a que você já faz.</li>
@@ -612,7 +613,7 @@ const FICHA = (() => {
     ['elev_pelvica_maq', 'Elevação pélvica máquina', 'Glúteos e adutores'], ['coice_deitado_maq', 'Máquina coice deitado', 'Glúteos e adutores'], ['coice_pe_maq', 'Máquina coice em pé', 'Glúteos e adutores'], ['apolete', 'Apolete', 'Glúteos e adutores'],
     ['scott_rold', 'Rosca Scott máquina roldana', 'Bíceps e tríceps'], ['scott_anilha', 'Rosca Scott máquina anilha', 'Bíceps e tríceps'], ['rosca_direta_maq', 'Rosca direta apoiada máquina', 'Bíceps e tríceps'], ['banco_scott', 'Banco Scott', 'Bíceps e tríceps'],
     ['biceps_machine', 'Biceps machine curl', 'Bíceps e tríceps'], ['triceps_testa_maq', 'Tríceps testa máquina', 'Bíceps e tríceps'], ['extensao_cot_maq', 'Extensão de cotovelo máquina', 'Bíceps e tríceps'],
-    ['pant_maq', 'Panturrilha máquina', 'Outros']
+    ['leg_horiz', 'Leg press horizontal', 'Quadríceps'], ['pant_maq', 'Panturrilha máquina', 'Outros'], ['pant_sentada', 'Panturrilha sentada máquina', 'Outros'], ['abd_maq', 'Abdominal máquina', 'Outros']
   ];
   const EQN = Object.fromEntries(EQ.map(e => [e[0], e[1]]).concat([['halter', 'Halteres']]));
   const HALTER = [[0, 'Não tem'], [20, 'Até 20 kg'], [30, 'Até 30 kg'], [40, 'Até 40 kg'], [50, 'Até 50 kg'], [60, '50 kg+']];
@@ -641,55 +642,59 @@ const FICHA = (() => {
   // variante: [nome, aparelhos, observação, reps próprias]. Reps no estilo da ficha: 5–9 em quase tudo, 4–6 nos pesados com barra, nunca acima de 12
   const P = {
     sup_reto: { m: 'peito', s: ['triceps', 'ombros'], tipo: 'c', reps: '5–9', rot: 1, cue: 'Escápulas juntas, desce em 2–3 s sem quicar.', why: 'Banco plano pega mais o peito médio e inferior (Rodríguez-Ridao 2020).',
-      v: [['Supino reto com barra', ['barra', 'banco']], ['Supino reto articulado (horizontal)', ['sup_reto_art_h']], ['Supino reto articulado (vertical)', ['sup_reto_art_v']], ['Supino reto na roldana', ['sup_reto_rold']], ['Supino reto com halteres', ['halter', 'banco']], ['Supino reto no Smith', ['smith_reto', 'banco']], ['Supino declinado na máquina', ['sup_decl_maq']], ['Paralela na máquina', ['paralela_maq']], ['Paralela com tronco inclinado', ['paralela_livre']]] },
+      v: [['Supino reto articulado (horizontal)', ['sup_reto_art_h']], ['Supino reto articulado (vertical)', ['sup_reto_art_v']], ['Supino reto no Smith', ['smith_reto', 'banco']], ['Supino declinado na máquina', ['sup_decl_maq']], ['Supino reto com halteres', ['halter', 'banco']], ['Paralela com tronco inclinado', ['paralela_livre'], '', '5–9'], ['Supino reto com barra', ['barra', 'banco']], ['Supino reto no crossover', ['polia'], '', '8–12'], ['Paralela na máquina', ['paralela_maq']]] },
     sup_incl: { m: 'peito', s: ['ombros', 'triceps'], tipo: 'c', reps: '5–9', rot: 1, cue: 'Banco em ~30°: acima disso o ombro assume.', why: 'Perto de 30° fica o pico do peitoral superior (Rodríguez-Ridao 2020).',
-      v: [['Supino inclinado 30° com halteres', ['halter', 'banco']], ['Supino inclinado articulado (vertical)', ['sup_incl_art_v']], ['Supino inclinado articulado (horizontal)', ['sup_incl_art_h']], ['Supino inclinado na roldana', ['sup_incl_rold']], ['Supino inclinado no Smith', ['smith_reto', 'banco']], ['Supino inclinado com barra', ['barra', 'banco']]] },
+      v: [['Supino inclinado articulado (vertical)', ['sup_incl_art_v']], ['Supino inclinado articulado (horizontal)', ['sup_incl_art_h']], ['Supino inclinado no Smith', ['smith_reto', 'banco']], ['Supino inclinado 30° com halteres', ['halter', 'banco']], ['Supino inclinado com barra', ['barra', 'banco']], ['Supino inclinado no crossover', ['polia'], '', '8–12']] },
     crucifixo: { m: 'peito', tipo: 'k', reps: '5–9', rot: 1, al: 1, cue: 'Abre até sentir o peito alongar, sem perder o controle.', why: 'Carrega o peito na posição alongada (regra do alongado; sem estudo direto).',
-      v: [['Peck deck', ['peck_deck']], ['Voador', ['voador']], ['Crucifixo máquina', ['crucifixo_maq']], ['Crossover polia baixa', ['polia']], ['Crossover polia alta', ['polia']], ['Crucifixo com halteres', ['halter', 'banco']]] },
-    puxada: { m: 'costas', sub: 'dorsal', s: ['biceps'], tipo: 'c', reps: '5–9', rot: 1, al: 1, cue: 'Pegada um pouco mais larga que os ombros, peito alto; solta o ombro em cima.', why: 'A largura da pegada quase não muda o dorsal (Andersen 2014).',
-      v: [['Puxada no pulley, pegada média', ['pulley']], ['Puxada frontal articulada', ['puxada_frontal_art']], ['Puxada frontal na máquina', ['puxada_frontal_maq']], ['Puxada na polia alta', ['polia']], ['Barra fixa', ['barrafixa'], 'Se não sair 5 reps, volta pra puxada.'], ['Pullover com halter', ['halter', 'banco'], '', '8–12']] },
-    puxada_neutra: { m: 'costas', sub: 'dorsal', s: ['biceps'], tipo: 'c', reps: '5–9', rot: 1, al: 1, cue: 'Cotovelos junto ao corpo, puxa até o peito.', why: 'Pegada neutra e fechada permite mais carga, com o dorsal igual (Andersen 2014).',
-      v: [['Puxada com triângulo no pulley', ['pulley']], ['Puxada alta articulada', ['puxada_alta_art']], ['Puxada unilateral neutra no cabo', ['polia']], ['Pullover na máquina', ['pullover_maq'], '', '8–12'], ['Pulldown de braço reto na polia', ['polia'], '', '8–12']] },
-    remada: { m: 'costas', sub: 'dorsal', s: ['biceps'], tipo: 'c', reps: '5–9', rot: 1, cue: 'Segura 1 s com as escápulas fechadas, sem balançar.', why: '1 puxada vertical + 1 remada cobre as costas.',
-      v: [['Remada baixa no triângulo', ['remada_baixa']], ['Low row', ['low_row']], ['Remada articulada com anilha', ['remada_art_anilha']], ['Remada na máquina (roldana)', ['remada_maq_rold']], ['Remada unilateral com halter', ['halter', 'banco']], ['Remada curvada com barra', ['barra']]] },
-    remada_alta: { m: 'costas', sub: 'upper back', s: ['ombros', 'biceps'], tipo: 'c', reps: '5–9', rot: 1, cue: 'Cotovelos abertos, puxa até a linha do tronco.', why: 'Plano transversal: meio das costas e deltoide posterior.',
-      v: [['Remada T-bar', ['remada_tbar']], ['Remada cavalinho', ['remada_cavalinho']], ['Seal row', ['seal_row']], ['Remada curvada na máquina', ['remada_curvada_maq']], ['Remada alta articulada', ['puxada_alta_art']], ['Remada aberta no cabo', ['remada_baixa']], ['Remada com halteres, peito apoiado', ['halter', 'banco']], ['Remada curvada aberta', ['barra']]] },
+      v: [['Voador', ['voador']], ['Voador', ['peck_deck']], ['Crossover polia baixa', ['polia']], ['Crossover polia alta', ['polia']], ['Crucifixo máquina', ['crucifixo_maq']], ['Crucifixo com halteres', ['halter', 'banco']]] },
+    puxada: { m: 'costas', sub: 'puxada no plano frontal', s: ['biceps'], tipo: 'c', reps: '5–9', rot: 1, al: 1, cue: 'Pegada um pouco mais larga que os ombros, cotovelos descem pelos lados; peito alto, solta o ombro em cima.', why: 'A largura da pegada quase não muda o dorsal (Andersen 2014).',
+      v: [['Puxada frontal pegada aberta na polia', ['pulley']], ['Puxada frontal articulada', ['puxada_frontal_art']], ['Puxada frontal articulada', ['puxada_frontal_maq']], ['Barra fixa', ['barrafixa'], 'Se não sair 5 reps, volta pra puxada.']] },
+    puxada_neutra: { m: 'costas', sub: 'puxada no plano sagital', s: ['biceps'], tipo: 'c', reps: '5–9', rot: 1, al: 1, cue: 'Cotovelos à frente e junto ao corpo, puxa até o peito.', why: 'Pegada neutra e fechada permite mais carga, com o dorsal igual (Andersen 2014).',
+      v: [['Puxada com triângulo na polia', ['pulley']], ['Puxada unilateral neutra articulada', ['puxada_alta_art']], ['Puxada unilateral neutra na polia', ['polia']], ['Pullover na máquina', ['pullover_maq'], '', '8–12'], ['Pulldown de braço reto na polia', ['polia'], '', '8–12'], ['Pullover com halter', ['halter', 'banco'], '', '8–12']] },
+    remada: { m: 'costas', sub: 'remada no plano sagital', s: ['biceps'], tipo: 'c', reps: '5–9', rot: 1, cue: 'Cotovelos junto ao corpo, puxa em direção ao quadril; segura 1 s sem balançar.', why: 'Cotovelo junto ao corpo puxa mais pelo dorsal; com a puxada, cobre as costas.',
+      v: [['Remada T-bar', ['remada_tbar']], ['Low row', ['low_row']], ['Remada baixa no triângulo', ['remada_baixa']], ['Remada cavalinho', ['remada_cavalinho']], ['Remada articulada com anilha', ['remada_art_anilha']], ['Remada na máquina (roldana)', ['remada_maq_rold']], ['Remada unilateral com halter', ['halter', 'banco']], ['Remada curvada com barra', ['barra']]] },
+    remada_alta: { m: 'costas', sub: 'remada no plano horizontal', s: ['ombros', 'biceps'], tipo: 'c', reps: '5–9', rot: 1, cue: 'Cotovelos abertos, uns 60–90° do tronco, puxa até a linha do peito.', why: 'Plano transversal: meio das costas e deltoide posterior.',
+      v: [['Remada T-bar', ['remada_tbar'], 'Aqui com os cotovelos abertos.'], ['Low row', ['low_row'], 'Aqui com os cotovelos abertos.'], ['Remada sentada na máquina', ['remada_maq_rold']], ['Remada alta articulada', ['puxada_alta_art']], ['Retração de escápula (Kelso shrug)', ['low_row'], 'Braços estendidos: só aproxima as escápulas.', '8–12'], ['Remada com peito apoiado (halteres)', ['halter', 'banco']], ['Seal row', ['seal_row']], ['Remada curvada com halteres, cotovelos abertos', ['halter']]] },
     desenv: { m: 'ombros', s: ['triceps'], tipo: 'c', reps: '5–9', rot: 1, cue: 'Antebraços na vertical, sem travar o cotovelo.', why: 'Composto de ombro; também dá volume indireto de tríceps.',
-      v: [['Desenvolvimento na máquina (anilhas)', ['desenv_maq_anilha']], ['Desenvolvimento na máquina (roldana)', ['desenv_maq_rold']], ['Desenvolvimento com halteres', ['halter', 'banco']], ['Desenvolvimento no Smith', ['smith_reto', 'banco']]] },
+      v: [['Desenvolvimento na máquina', ['desenv_maq_anilha']], ['Desenvolvimento na máquina', ['desenv_maq_rold']], ['Desenvolvimento no Smith', ['smith_reto', 'banco']], ['Desenvolvimento com halteres', ['halter', 'banco']], ['Desenvolvimento unilateral na polia', ['polia']], ['Desenvolvimento com barra', ['barra', 'rack']], ['Desenvolvimento unilateral com halter', ['halter']]] },
     lateral: { m: 'ombros', tipo: 'i', reps: '8–12', rot: 1, cue: 'Sobe até a linha do ombro, cotovelo levemente à frente, sem balanço. No cabo, polia na altura do quadril.', why: 'Halter e cabo deram o mesmo resultado (Larsen 2025).',
-      v: [['Elevação lateral na polia', ['polia']], ['Elevação lateral na máquina, cotovelo apoiado', ['lateral_maq_cot']], ['Elevação lateral na máquina', ['lateral_maq']], ['Elevação lateral com halteres', ['halter']]] },
+      v: [['Elevação lateral na máquina', ['lateral_maq_cot']], ['Elevação lateral na máquina', ['lateral_maq']], ['Elevação lateral na polia', ['polia']], ['Elevação lateral com halteres', ['halter']], ['Elevação lateral deitado de lado no banco inclinado', ['halter', 'banco'], 'Deitado de lado no banco a ~30°: o deltoide trabalha mais alongado.'], ['Elevação lateral unilateral com halter, apoiado', ['halter']]] },
     crucifixo_inv: { m: 'ombros', s: ['costas'], tipo: 'i', reps: '8–12', rot: 1, cue: 'Braços quase estendidos, abre pela linha do ombro.', why: 'Deltoide posterior; completa as remadas.',
-      v: [['Crucifixo inverso no peck deck', ['peck_deck']], ['Crucifixo inverso no voador', ['voador']], ['Crucifixo inverso na polia', ['polia']], ['Crucifixo inverso com halteres', ['halter', 'banco']]] },
+      v: [['Crucifixo inverso no voador', ['voador']], ['Crucifixo inverso no voador', ['peck_deck']], ['Crucifixo inverso unilateral na polia', ['polia']], ['Crucifixo inverso na polia', ['polia']], ['Face pull na polia', ['polia'], 'Corda na altura do rosto, cotovelos altos e abertos.', '8–12'], ['Crucifixo inverso com halteres, peito apoiado', ['halter', 'banco']], ['Crucifixo inverso unilateral com halter', ['halter', 'banco']]] },
     rosca_incl: { m: 'biceps', tipo: 'i', reps: '5–9', rot: 1, al: 1, cue: 'Banco a 45°, braço atrás do tronco; desce em 2–3 s sem embalo.', why: 'Alongada: cresceu mais a parte proximal do bíceps (Kassiano 2025).',
       v: [['Rosca inclinada 45° com halteres', ['halter', 'banco']], ['Rosca bayesian na polia', ['polia'], '', '8–12']] },
     rosca_scott: { m: 'biceps', tipo: 'i', reps: '5–9', rot: 1, cue: 'Desce em 2–3 s até quase estender, sem embalo.', why: 'Scott cresceu mais a parte distal do bíceps (Kassiano 2025).',
-      v: [['Rosca Scott na máquina (roldana)', ['scott_rold']], ['Rosca Scott unilateral com halter', ['banco_scott', 'halter']], ['Rosca Scott unilateral na máquina', ['scott_rold']], ['Biceps machine curl', ['biceps_machine']], ['Rosca Scott na máquina (anilha)', ['scott_anilha']], ['Rosca Scott no banco', ['banco_scott']], ['Rosca direta apoiada na máquina', ['rosca_direta_maq']], ['Rosca spider com halteres', ['halter', 'banco']], ['Rosca na polia', ['polia'], '', '8–12']] },
+      v: [['Rosca Scott na máquina', ['scott_rold']], ['Rosca Scott na máquina', ['scott_anilha']], ['Rosca Scott na máquina', ['biceps_machine']], ['Rosca Scott unilateral com halter', ['banco_scott', 'halter']], ['Rosca Scott unilateral na máquina', ['scott_rold']], ['Rosca direta apoiada na máquina', ['rosca_direta_maq']], ['Rosca direta na polia', ['polia'], '', '8–12'], ['Rosca spider com halteres', ['halter', 'banco']], ['Rosca concentrada com halter', ['halter', 'banco']], ['Rosca direta com halteres', ['halter']]] },
     tri_cabeca: { m: 'triceps', tipo: 'i', reps: '5–9', rot: 1, al: 1, cue: 'Cotovelos apontando pra frente; desce até alongar bem.', why: 'Acima da cabeça cresceu mais que o pushdown (Maeo 2022).',
       v: [['Tríceps francês na polia (corda)', ['polia']], ['Tríceps francês unilateral na polia', ['polia']], ['Tríceps de costas para a polia', ['polia']], ['Tríceps francês unilateral com halter', ['halter']], ['Tríceps francês com halter, 2 mãos', ['halter']]] },
     tri_polia: { m: 'triceps', tipo: 'i', reps: '8–12', rot: 1, cue: 'Cotovelo parado ao lado do tronco.', why: 'Complementa o tríceps acima da cabeça.',
-      v: [['Tríceps na polia (corda)', ['polia']], ['Tríceps na polia (barra)', ['polia']], ['Tríceps unilateral na polia', ['polia']], ['Tríceps testa na máquina', ['triceps_testa_maq']], ['Extensão de cotovelo na máquina', ['extensao_cot_maq']], ['Paralela na máquina', ['paralela_maq'], '', '5–9'], ['Tríceps testa com halteres', ['halter', 'banco']]] },
+      v: [['Tríceps na polia (corda)', ['polia']], ['Tríceps unilateral na polia', ['polia']], ['Tríceps na polia (barra)', ['polia']], ['Tríceps testa na máquina', ['triceps_testa_maq']], ['Extensão de cotovelo na máquina', ['extensao_cot_maq']], ['Paralela na máquina', ['paralela_maq'], '', '5–9'], ['Tríceps testa com halteres', ['halter', 'banco']]] },
     agach: { m: 'quad', s: ['gluteo', 'adutor'], tipo: 'c', reps: '5–9', rot: 1, al: 1, cue: 'Desce até onde a coluna fica neutra e o calcanhar no chão.', why: 'Quadríceps rende o máximo perto de 90–100° de joelho (Bloomquist 2013); mais fundo dá mais glúteo e adutor (Kubo 2019).',
-      v: [['Agachamento pêndulo', ['pendulo']], ['Agachamento hack', ['hack_conv']], ['Belt squat', ['belt_squat']], ['Agachamento no Smith angulado', ['smith_ang']], ['Agachamento no Smith', ['smith_reto']], ['Agachamento livre', ['barra', 'rack'], '', '4–6'], ['Leg press 45° articulado', ['leg45_art']], ['Leg press 45°', ['leg45_linear']], ['Agachamento búlgaro com halteres', ['halter', 'banco']], ['Agachamento goblet', ['halter'], '', '8–12']] },
+      v: [['Agachamento pêndulo', ['pendulo']], ['Agachamento hack', ['hack_conv']], ['Agachamento hack', ['hack_div']], ['Agachamento no Smith', ['smith_ang']], ['Agachamento no Smith', ['smith_reto']], ['Leg press 45°', ['leg45_linear']], ['Leg press 45° articulado', ['leg45_art']], ['Belt squat', ['belt_squat']], ['Agachamento livre', ['barra', 'rack'], '', '4–6'], ['Agachamento búlgaro com halteres', ['halter', 'banco'], '', '8–12'], ['Agachamento goblet', ['halter'], '', '8–12']] },
     legpress: { m: 'quad', s: ['gluteo', 'adutor'], tipo: 'c', reps: '5–9', rot: 0, cue: 'Amplitude máxima sem tirar o quadril do banco.', why: 'O leg press também cresce glúteo e adutor (Kinoshita 2026).',
       v: [['Leg press 45° articulado', ['leg45_art']], ['Leg press 45°', ['leg45_linear']], ['Hack divergente', ['hack_div']], ['Agachamento hack', ['hack_conv']], ['Agachamento no Smith', ['smith_reto']], ['Agachamento búlgaro com halteres', ['halter', 'banco']]] },
     extensora: { m: 'quad', tipo: 'k', reps: '5–9', rot: 0, al: 1, cue: 'Pausa 1 s no topo; encosto mais reclinado se a máquina deixar.', why: 'Só a extensora cresceu o reto femoral (Kinoshita 2026).',
-      v: [['Cadeira extensora', ['extensora_conv']], ['Cadeira extensora (anilhas)', ['extensora_anilha']], ['Sissy squat', [], '', '8–12']] },
+      v: [['Cadeira extensora', ['extensora_conv']], ['Cadeira extensora', ['extensora_anilha']], ['Cadeira extensora unilateral', ['extensora_conv']], ['Cadeira extensora unilateral', ['extensora_anilha']], ['Sissy squat', [], '', '8–12']] },
     stiff: { m: 'post', s: ['gluteo'], tipo: 'c', reps: '5–9', rot: 1, al: 1, cue: 'Joelho levemente dobrado, quadril pra trás, coluna neutra.', why: 'Stiff (quadril) + flexora (joelho) cobrem as duas funções do posterior.',
-      v: [['Stiff com barra', ['barra'], '', '4–6'], ['Stiff com halteres', ['halter']], ['Stiff no Smith', ['smith_reto']], ['Extensão de quadril no banco romano', ['banco_romano']], ['Levantamento terra', ['barra'], 'Terra convencional: puxa do chão, coluna neutra o tempo todo.', '4–6']] },
+      v: [['Stiff com barra', ['barra'], '', '4–6'], ['Stiff com halteres', ['halter']], ['Extensão de quadril no banco romano', ['banco_romano']], ['Stiff no Smith', ['smith_reto']], ['Stiff unilateral com halter', ['halter'], 'Um pé de apoio no chão, quadril alinhado.', '8–12'], ['Good morning no Smith', ['smith_reto'], 'Barra nas costas, joelho levemente dobrado: o quadril vai pra trás até sentir o posterior alongar.'], ['Good morning no hack', ['hack_div'], 'De frente pra máquina: só o quadril vai pra trás, joelho quase parado.'], ['Good morning no hack', ['hack_conv'], 'De frente pra máquina: só o quadril vai pra trás, joelho quase parado.'], ['Good morning com barra', ['barra', 'rack'], 'Barra nas costas, joelho levemente dobrado: o quadril vai pra trás até sentir o posterior alongar.'], ['Levantamento terra', ['barra'], 'Terra convencional: puxa do chão, coluna neutra o tempo todo.', '4–6']] },
     flexora: { m: 'post', tipo: 'k', reps: '5–9', rot: 0, al: 1, cue: 'Desce controlando, quadril colado no banco.', why: 'A sentada cresceu mais que a deitada (Maeo 2021).',
-      v: [['Cadeira flexora', ['cadeira_flexora']], ['Mesa flexora', ['mesa_flexora'], 'Se a academia tiver cadeira flexora, troque: cresceu mais (Maeo 2021).'], ['Flexora em pé (roldana)', ['flexora_pe_rold'], 'Se a academia tiver cadeira flexora, prefira: cresceu mais (Maeo 2021).'], ['Flexora em pé (anilha)', ['flexora_pe_anilha'], 'Se a academia tiver cadeira flexora, prefira: cresceu mais (Maeo 2021).']] },
+      v: [['Cadeira flexora', ['cadeira_flexora']], ['Cadeira flexora unilateral', ['cadeira_flexora']], ['Mesa flexora', ['mesa_flexora'], 'Se a academia tiver cadeira flexora, troque: cresceu mais (Maeo 2021).'], ['Flexora em pé', ['flexora_pe_rold'], 'Se a academia tiver cadeira flexora, prefira: cresceu mais (Maeo 2021).'], ['Flexora em pé', ['flexora_pe_anilha'], 'Se a academia tiver cadeira flexora, prefira: cresceu mais (Maeo 2021).'], ['Mesa flexora unilateral', ['mesa_flexora'], 'Se a academia tiver cadeira flexora, troque: cresceu mais (Maeo 2021).'], ['Flexora deitado com halter entre os pés', ['halter', 'banco'], 'Halter preso entre os pés; desce devagar.', '8–12']] },
     hip: { m: 'gluteo', s: ['post'], tipo: 'c', reps: '5–9', rot: 1, cue: 'Pausa 1 s em cima, queixo baixo, costelas pra baixo.', why: 'Hip thrust e agachamento crescem o glúteo parecido (Plotkin 2023); um exige mais embaixo, o outro em cima.',
-      v: [['Elevação pélvica na máquina guiada', ['elev_pelvica_guiada']], ['Elevação pélvica na máquina', ['elev_pelvica_maq']], ['Hip thrust com barra', ['barra', 'banco']], ['Hip thrust no Smith', ['smith_reto', 'banco']], ['Hip thrust com halter', ['halter', 'banco']]] },
+      v: [['Elevação pélvica na máquina guiada', ['elev_pelvica_guiada']], ['Elevação pélvica na máquina', ['elev_pelvica_maq']], ['Elevação pélvica no Smith', ['smith_reto', 'banco']], ['Elevação pélvica unilateral com halter', ['halter', 'banco'], '', '8–12'], ['Elevação pélvica com halter', ['halter', 'banco'], '', '8–12']] },
     abdutora: { m: 'gluteo', tipo: 'i', reps: '8–12', rot: 1, cue: 'Tronco levemente à frente, segura 1 s aberto.', why: 'Abdução de quadril: glúteo médio e mínimo.',
-      v: [['Cadeira abdutora', ['abdutora']], ['Abdutora em pé', ['abdutora_pe']], ['Abdução na polia', ['polia']]] },
+      v: [['Cadeira abdutora', ['abdutora']], ['Abdução na polia', ['polia']]] },
     coice: { m: 'gluteo', s: ['post'], tipo: 'i', reps: '8–12', rot: 0, cue: 'Quadril parado; estende até o fim sem arquear a lombar.', why: 'Extensão de quadril isolada pra completar o volume.',
-      v: [['Coice na máquina em pé', ['coice_pe_maq']], ['Coice na máquina deitado', ['coice_deitado_maq']], ['Apolete', ['apolete']], ['Coice na polia', ['polia']]] },
+      v: [['Coice na máquina', ['coice_pe_maq']], ['Coice na máquina deitado', ['coice_deitado_maq']], ['Apolete', ['apolete']], ['Coice na polia', ['polia']]] },
     adutora: { m: 'adutor', tipo: 'i', reps: '8–12', rot: 1, cue: 'Amplitude total, sem quicar.', why: 'Leg press e agachamento fundo também trabalham o adutor (Kinoshita 2026; Kubo 2019).',
       v: [['Cadeira adutora', ['adutora']], ['Adução na polia', ['polia']]] },
     pant: { m: 'pant', tipo: 'i', reps: '5–9', rot: 1, al: 1, cue: 'Pausa 1–2 s embaixo, sobe ao máximo.', why: 'Em pé é muito melhor pro gastrocnêmio; o sóleo cresce igual (Kinoshita 2023).',
-      v: [['Panturrilha em pé na máquina', ['pant_maq']], ['Panturrilha no leg press', ['leg45_linear']], ['Panturrilha no leg press articulado', ['leg45_art']], ['Panturrilha no Smith', ['smith_reto']], ['Panturrilha unilateral com halter', ['halter']]] },
+      v: [['Panturrilha em pé na máquina', ['pant_maq']], ['Panturrilha no leg press', ['leg45_linear']], ['Panturrilha no leg press', ['leg45_art']], ['Panturrilha no leg press horizontal', ['leg_horiz']], ['Panturrilha no Smith', ['smith_reto']], ['Panturrilha unilateral com halter', ['halter']], ['Panturrilha sentada na máquina', ['pant_sentada'], 'Sentada pega mais o sóleo; em pé é melhor pro gastrocnêmio (Kinoshita 2023).'], ['Panturrilha no hack', ['hack_conv']], ['Panturrilha sentada com halter', ['halter', 'banco'], 'Sentada pega mais o sóleo; em pé é melhor pro gastrocnêmio (Kinoshita 2023).']] },
     abdominal: { m: 'abd', tipo: 'i', reps: '8–12', rot: 1, cue: 'Enrola a coluna; não puxa com os braços.', why: 'Fora da base de estudos: prática comum.',
-      v: [['Abdominal na polia', ['polia']], ['Abdominal supra', []]] }
+      v: [['Abdominal supra na máquina', ['abd_maq']], ['Abdominal supra na polia', ['polia']], ['Abdominal supra no banco', ['banco']], ['Abdominal supra com halter no peito', ['halter', 'banco']]] },
+    abd_infra: { m: 'abd', tipo: 'i', reps: '8–12', rot: 1, cue: 'Enrola o quadril em direção às costelas; desce devagar sem balançar.', why: 'Fora da base de estudos: prática comum.',
+      v: [['Abdominal infra no banco declinado', ['banco']], ['Abdominal infra na paralela', ['paralela_livre']], ['Abdominal infra na barra fixa', ['barrafixa']]] },
+    bulgaro: { m: 'gluteo', s: ['quad', 'adutor'], tipo: 'c', reps: '8–12', rot: 1, al: 1, cue: 'Tronco inclinado à frente e passada longa: desce até alongar o glúteo da perna da frente.', why: 'Unilateral com o glúteo alongado embaixo; tronco à frente leva mais carga pro glúteo.',
+      v: [['Agachamento búlgaro no Smith', ['smith_reto', 'banco']], ['Agachamento búlgaro com halteres', ['halter', 'banco']], ['Leg press horizontal unilateral', ['leg_horiz'], 'Pé alto na plataforma e descida funda: o glúteo trabalha alongado.'], ['Afundo reverso no Smith', ['smith_reto']], ['Afundo com halteres', ['halter']]] }
   };
 
   // ordem dos padrões por ocorrência do músculo na semana (âncora no 1º dia, variação no 2º)
@@ -701,11 +706,13 @@ const FICHA = (() => {
     triceps: [['tri_cabeca', 'tri_polia']],
     quad: [['agach', 'extensora', 'legpress'], ['legpress', 'extensora', 'agach']],
     post: [['stiff', 'flexora'], ['flexora', 'stiff']],
-    gluteo: [['hip', 'abdutora', 'coice'], ['abdutora', 'hip', 'coice']],
-    adutor: [['adutora']], pant: [['pant']], abd: [['abdominal']]
+    gluteo: [['hip', 'abdutora', 'bulgaro', 'coice'], ['abdutora', 'bulgaro', 'hip', 'coice']],
+    adutor: [['adutora']], pant: [['pant']], abd: [['abdominal', 'abd_infra'], ['abd_infra', 'abdominal']]
   };
   // 2º crucifixo do dia: no lugar do 2º supino, pra não pesar o tríceps; começa pelas variantes de cabo/halter
-  P.crucifixo2 = { ...P.crucifixo, alias: 'crucifixo', v: [3, 4, 1, 0, 2, 5].map(i => P.crucifixo.v[i]) };
+  P.crucifixo2 = { ...P.crucifixo, alias: 'crucifixo', v: [2, 3, 0, 1, 4, 5].map(i => P.crucifixo.v[i]) };
+  // leg press: mesma lista do agachamento, começando pelos leg press (pra variar no 2º composto de perna)
+  P.legpress = { ...P.legpress, alias: 'agach', v: [5, 6, 7, 1, 2, 3, 4, 0, 8, 9, 10].map(i => P.agach.v[i]) };
   const ALLP = {};
   for (const m of MK) ALLP[m] = [...new Set(MENU[m].flat().concat(Object.keys(P).filter(p => P[p].m === m)))];
 
@@ -787,7 +794,12 @@ const FICHA = (() => {
     ]
   };
   const DIAS_PADRAO = { 2: [0, 3], 3: [0, 2, 4], 4: [0, 1, 3, 4], 5: [0, 1, 2, 4, 5], 6: [0, 1, 2, 3, 4, 5] };
-  const CAP = { 45: 14, 60: 18, 75: 23, 90: 28 }; // ~3,2 min por série com descanso de 2–3 min
+  // tempo calibrado em 52 treinos reais (Hevy, abr–nov/2026) com 13% de desconto pra quem pega menos carga:
+  // ≈ 4,25 min por exercício (montagem, preparo, troca) + 3,05 por série válida + 3,3 por exercício pesado (barra/muita anilha)
+  const T_EX = 4.25, T_SER = 3.05, T_PES = 3.3;
+  const PESADO = /com barra|no Smith|Smith angulado|leg press|hack|pêndulo|belt squat|T-bar|cavalinho|agachamento livre|levantamento terra|seal row/i;
+  const minutos = S => S.rows.reduce((t, r) => t + T_EX + r.sets * T_SER + (PESADO.test(r.nome) ? T_PES : 0), 0);
+  const CAP = { 45: 8, 60: 11, 75: 13, 90: 16 }; // séries que cabem com 2 séries por exercício e ~1,5 pesado por treino
   const NIVEL = {
     ini: { nome: 'Iniciante', mult: 0.7, maxEx: 2, rir: { c: '2–3', k: '2–3', i: '1–2' } },
     int: { nome: 'Intermediário', mult: 1, maxEx: 4, rir: { c: '1–3', k: '0–2', i: '0–2' } },
@@ -805,6 +817,7 @@ const FICHA = (() => {
   const parseE = s => { const [h, pl] = s.split(':'); const sec = h.endsWith('?'); return { m: sec ? h.slice(0, -1) : h, sec, pats: pl ? pl.split(',') : [] }; };
   const vAvail = (p, eq) => {
     const av = P[p].v.map((v, i) => ({ nome: v[0], eq: v[1], obs: v[2] || '', reps: v[3] || '', i })).filter(v => v.eq.every(k => eq.has(k)));
+    for (let x = av.length - 1; x > 0; x--) if (av.findIndex(o => o.nome === av[x].nome) < x) av.splice(x, 1);
     if (eq.has('halter_leve') && P[p].tipo === 'c') av.sort((a, b) => a.eq.includes('halter') - b.eq.includes('halter')); // halteres até 20 kg: máquina primeiro nos compostos
     return av;
   };
@@ -913,7 +926,7 @@ const FICHA = (() => {
         bonus(c[0], m);
         S.push(c[0]);
       }
-      if (!S.length) { const j = idx.slice().sort((a, b) => carga[a] - carga[b])[0]; bonus(j, m); S.push(j); }
+      if (!S.length) { const tp = idx.filter(j => naTpl(j, m)); const j = (tp.length ? tp : idx).slice().sort((a, b) => carga[a] - carga[b])[0]; bonus(j, m); S.push(j); }
       S.forEach(i => { carga[i] += Math.ceil(tot / S.length); });
       plano[m] = S;
     }
@@ -930,7 +943,7 @@ const FICHA = (() => {
       let ds = livre(soft(m));
       if (ds.length) { al[ds[0]][m] += st; continue; }
       const cur = diasDe(m);
-      const extraOk = j => naTpl(j, m) || !cur.length;
+      const extraOk = j => naTpl(j, m) || (!cur.length && !idx.some(i => naTpl(i, m)));
       const nj = idx.filter(j => !cur.includes(j) && okGap(j, cur) && cap - sum(j) >= 2 && extraOk(j)).sort((a, b) => temM(b, m) - temM(a, m) || sum(a) - sum(b));
       if (nj.length) {
         if (T[m] - sem(m) >= 2) { bonus(nj[0], m); al[nj[0]][m] = 2; continue; }
@@ -964,7 +977,7 @@ const FICHA = (() => {
         occ[m] = k + 1;
         const menu = MENU[m][k % MENU[m].length];
         let pats = [...new Set(e.pats.concat(menu, ALLP[m]))].filter(p => vAvail(p, cfg.eq).length);
-        if (cfg.perfil === 'f' && m === 'gluteo') pats = [...new Set((k % 2 ? ['hip', 'coice', 'abdutora'] : ['hip', 'abdutora', 'coice']).concat(pats))].filter(p => vAvail(p, cfg.eq).length);
+        if (cfg.perfil === 'f' && m === 'gluteo') pats = [...new Set([['hip', 'abdutora', 'coice', 'bulgaro'], ['bulgaro', 'coice', 'abdutora', 'hip'], ['hip', 'coice', 'bulgaro', 'abdutora']][k % 3].concat(pats))].filter(p => vAvail(p, cfg.eq).length);
         if (!pats.length) continue;
         // regra do alongado: se a semana ainda não teve, a última ocorrência começa por um exercício alongado
         if (FORCA_AL.includes(m) && !teveAl[m] && k === occTot[m] - 1) {
@@ -974,6 +987,9 @@ const FICHA = (() => {
         // grupos grandes: exercícios de 2 séries, e o 1º leva a sobra (3 só quando o número é ímpar)
         // braço, panturrilha e abdômen têm poucos exercícios: aí 3 séries por exercício é normal
         let nx = lv.maxEx <= 2 ? Math.ceil(a / 2) : PEQ.includes(m) ? (a <= 3 ? 1 : a <= 6 ? 2 : 3) : Math.max(1, Math.floor(a / 2));
+        // quadríceps: 1 variação de agachamento (agachamento, leg press, hack, pêndulo…) + extensora por treino.
+        // Os vastos crescem igual nos dois e só a extensora pega o reto femoral (Kinoshita 2026); 2º agachamento só se passar de 6 séries
+        if (m === 'quad' && a <= 6) nx = Math.min(nx, 2);
         nx = Math.min(nx, pats.length);
         const pt = partes(a, nx, lv.maxEx);
         let j = 0, pi = 0;
@@ -1014,9 +1030,10 @@ const FICHA = (() => {
       S.rows.forEach((r, ix) => { r.prep = ix === 0 ? 'Aquec. + 2 FS' : '1 FS'; });
       if (lv.backoff) { const f = S.rows.find(r => r.tipo === 'c'); if (f) f.tec = 'Opcional: top set de 4–6 reps + 2 back-offs com 10–15% menos carga e 8–10 reps.'; }
       S.series = S.rows.reduce((s, r) => s + r.sets, 0);
-      S.min = Math.round(S.series * 3.2 / 5) * 5;
+      S.min = Math.round(minutos(S) / 5) * 5;
     });
     lados(ses, cfg);
+    ses.forEach(S => { S.min = Math.round(minutos(S) / 5) * 5; });
     return ses;
   }
 
@@ -1252,7 +1269,8 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     const focos = F.MK.filter(m => c.tiers[m] === 2);
     $('#f-focos').innerHTML = focos.length > 3 ? `<p class="alerta" role="status">Você marcou ${focos.length} focos (${lista(focos.map(m => F.MUSC[m].nome))}). Com 2 ou 3 o volume se distribui melhor: o extra de cada foco tira espaço dos outros.</p>` : '';
     const auto = c.split === 'auto' || !opts.find(o => o.id === c.split);
-    $('#f-split').innerHTML = `<div class="chips">${chip('split', 'auto', 'Automática', auto)}</div><div class="spk">${seletor(opts, auto ? null : c.split, 'data-k="split" data-v', false)}</div>`;
+    const abre = !auto || c.splitAberto;
+    $('#f-split').innerHTML = `<div class="chips">${chip('split', 'auto', 'Automática', !abre)}${chip('splitmodo', 'escolher', `Quero escolher <svg class="seta${abre ? ' on' : ''}" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`, abre)}</div>${abre ? `<div class="spk">${seletor(opts, auto ? null : c.split, 'data-k="split" data-v', false)}</div>` : ''}`;
     $('#f-acad').innerHTML = ACAD.map(([k, n]) => chip('preset', k, n, c.preset === k)).join('') + (c.preset === 'custom' ? chip('preset', 'custom', 'Personalizada', true) : '');
     const g = {};
     F.EQ.forEach(([k, n, gr]) => { (g[gr] = g[gr] || []).push([k, n]); });
@@ -1270,7 +1288,7 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     const pd = { 2: 'Com 2 dias sai full body: cada músculo 2x por semana, mas cabe menos volume na semana.', 3: 'Com 3 dias sai full body ou Upper + Lower + Full body: cada músculo 2 a 3x por semana.', 4: 'Com 4 dias saem Upper/Lower, Anterior/Posterior, Torso/Limbs, PPL + 1 dia ou Full body 4x: cada músculo 2x por semana.', 5: 'Com 5 dias entram as combinações de PPL, Upper/Lower e Full body: cabe mais volume e cada treino fica mais curto.', 6: 'Com 6 dias entram as combinações de PPL, Upper/Lower, Anterior/Posterior e Full body: cabe mais volume e cada treino fica mais curto.' };
     $('#x-dias').innerHTML = nd >= 2 ? `${pd[nd]} Os dias decidem a divisão e quanto volume cabe na semana; entre dois treinos do mesmo músculo ficam pelo menos 48\u00a0h.` : 'Marque pelo menos 2 dias: com 1 só não dá pra treinar cada músculo 2x.';
     const cap = F.CAP[c.dur];
-    let td = `Cada treino de ${c.dur} min comporta até ~${cap} séries (~3 min por série, contando o descanso)`;
+    let td = `Cada treino de ${c.dur} min comporta umas ${cap} séries válidas: cada exercício custa uns 4 min de montagem, aquecimento e troca, mais ~3 min por série com o descanso, e os pesados de barra ou muita anilha somam mais 3`;
     if (nd >= 2) td += `: com ${nd} dias, até ~${cap * nd} na semana`;
     td += '.';
     if (ok && R.an.total < R.an.alvo) td += ` A sua ficha ficou com ${R.an.total} das ${R.an.alvo} séries do alvo: o que não cabe sai primeiro de Manter, depois de Normal. Mais tempo ou mais um dia abrem espaço.`;
@@ -1647,7 +1665,8 @@ if (typeof module !== 'undefined') module.exports = FICHA;
         else if (d.k === 'nivel') c.nivel = d.v;
         else if (d.k === 'atual') c.atual = d.v;
         else if (d.k === 'perfil') { if (c.perfil !== d.v) { c.perfil = d.v; c.tiers = { ...TIERS_PERFIL[d.v] }; } }
-        else if (d.k === 'split') c.split = d.v;
+        else if (d.k === 'split') { c.split = d.v; if (d.v === 'auto') c.splitAberto = false; }
+        else if (d.k === 'splitmodo') c.splitAberto = !(c.splitAberto || c.split !== 'auto') ? true : (c.split === 'auto' ? !c.splitAberto : true);
         else if (d.k === 'preset' && d.v !== 'custom') { c.preset = d.v; c.eq = F.PRESETS[d.v].eq.slice(); c.halter = F.PRESETS[d.v].halter; }
         else if (d.k === 'halter') { c.halter = +d.v; c.preset = presetIgual(c); }
         mudou();
