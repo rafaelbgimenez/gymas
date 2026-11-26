@@ -4,34 +4,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Ficha de treino baseada em ciência</title>
+<title>gymas · você entendeu a teoria, falta a ficha</title>
 <meta name="description" content="Ficha de treino montada com base em estudo: escolha seus dias, as máquinas da sua academia e o foco de cada músculo. Veja a divisão e o volume de graça.">
-<meta name="theme-color" content="#141414">
+<meta name="theme-color" content="#F7F6F2">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ficha de treino baseada em ciência">
+<meta property="og:title" content="gymas · você entendeu a teoria, falta a ficha">
 <meta property="og:description" content="Escolha seus dias, as máquinas da sua academia e o foco de cada músculo. A divisão e o volume saem de estudos, com referência em cada escolha.">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141414'/%3E%3Crect x='4' y='14' width='24' height='4' rx='2' fill='%23fff'/%3E%3Crect x='7' y='8' width='5' height='16' rx='2' fill='%23d42a22'/%3E%3Crect x='20' y='8' width='5' height='16' rx='2' fill='%23d42a22'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111111'/%3E%3Ctext x='8' y='23' font-family='Georgia,serif' font-weight='700' font-size='21' fill='%23F7F6F2'%3Eg%3C/text%3E%3Ctext x='20' y='13' font-family='Georgia,serif' font-weight='500' font-size='9' fill='%238FA2FF'%3E1%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* VOICE everyday: a confident coach's tool, plain and direct
    IDEA the printed ficha de treino a coach hands you, with barbell plates for volume
    PICTURE the week as a ficha grid of 7 day columns; weekly volume as plates loaded on a bar
    COLOUR paper white or rubber black ground, ink, plate red (Foco), blue (Normal), yellow (Manter)
-   TYPE Barlow Condensed 700-800 display + Barlow text
+   TYPE Literata 700 títulos, Inter texto e UI, JetBrains Mono números (marca gymas)
    LAYOUT laptop: title with day chips at right, full-width week grid, then form beside a sticky volume panel, then the ficha; phone: title, week list, chips, form, volume, ficha */
-:root{--fd:"Barlow Condensed","Arial Narrow",sans-serif;--ft:Barlow,system-ui,sans-serif;color-scheme:light dark;--bg:light-dark(#ffffff,#121212);--ink:light-dark(#141414,#f2f2ee);--mut:light-dark(#5d5d58,#a9a9a3);--line:light-dark(#e2e2dc,#30302d);--pan:light-dark(#f4f4f0,#1d1d1b);--red:light-dark(#d42a22,#ff6b5e);--blue:light-dark(#1f5fd6,#6d9dff);--yel:light-dark(#efb800,#ffd447);--on-red:light-dark(#ffffff,#141414);--on-blue:light-dark(#ffffff,#141414);--on-yel:#141414;--body:light-dark(#e7e7e1,#2b2b28);--body2:light-dark(#d3d3cb,#3b3b37)}
+:root{--fd:Literata,Georgia,serif;--ft:Inter,system-ui,sans-serif;--fm:"JetBrains Mono",ui-monospace,monospace;color-scheme:light dark;--bg:light-dark(#F7F6F2,#111111);--card:light-dark(#FFFFFF,#1B1B19);--ink:light-dark(#111111,#F7F6F2);--mut:light-dark(#5C5C58,#B9B7B0);--line:light-dark(#DEDCD5,#33332F);--pan:light-dark(#EFEDE7,#222220);--azul:light-dark(#1F3FD6,#8FA2FF);--on-azul:light-dark(#FFFFFF,#111111);--red:var(--azul);--on-red:var(--on-azul);--blue:light-dark(#5C5C58,#B9B7B0);--on-blue:light-dark(#FFFFFF,#111111);--yel:light-dark(#D3D0C7,#4A4944);--on-yel:light-dark(#111111,#F7F6F2);--body:light-dark(#E8E6DF,#2A2A27);--body2:light-dark(#D3D0C7,#3B3B37)}
 :root[data-theme=light]{color-scheme:light}
 :root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:76px;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--ft);overflow-x:clip}
-h1,h2,h3{font-family:var(--fd);font-weight:800;line-height:1.05;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--fd);font-weight:700;line-height:1.1;letter-spacing:-.02em;text-wrap:balance;margin:0}
 h1{font-size:clamp(36px,5.2vw,48px)}
 h2{font-size:clamp(32px,4vw,36px)}
 h3{font-size:20px;font-weight:700}
@@ -39,8 +39,8 @@ p{margin:0}
 a{color:inherit}
 .band{padding-block:clamp(32px,4vw,48px);padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:1240px;margin:0 auto}
-.top{position:sticky;top:0;z-index:6;background:var(--bg);border-bottom:1.5px solid var(--ink);display:flex;align-items:center;gap:12px;padding:8px max(5vw,16px)}
-.mark{display:flex;align-items:center;gap:8px;text-decoration:none;font:800 24px/1 var(--fd)}
+.top{position:sticky;top:0;z-index:6;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:8px max(5vw,16px)}
+.mark{display:flex;align-items:center;gap:8px;text-decoration:none;font:700 24px/1 var(--fd)}
 .mark svg{width:26px;height:26px;flex:none}
 .mark small{font:500 14px var(--ft);color:var(--mut)}
 .nav{margin-left:auto;display:flex;gap:2px;overflow-x:auto}
@@ -54,7 +54,7 @@ a{color:inherit}
 .chip:hover{background:var(--pan)}
 .chip[aria-pressed=true]{background:var(--ink);color:var(--bg)}
 .chip.dd{min-width:56px;padding:0 12px;border-radius:8px}
-button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
 .t0{--c:var(--yel);--on:var(--on-yel)}
 .t1{--c:var(--blue);--on:var(--on-blue)}
 .t2{--c:var(--red);--on:var(--on-red)}
@@ -66,9 +66,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .spg{display:grid;grid-template-columns:9.5em minmax(0,1fr);gap:8px 16px;align-items:start}
 .spg>h3{font:700 18px/1.1 var(--fd);margin:0;padding-top:12px}
 .spo{display:flex;flex-wrap:wrap;gap:8px}
-.sc{display:grid;gap:8px;min-width:15em;padding:12px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);text-align:left;cursor:pointer;font:600 14px/1.2 var(--ft)}
+.sc{display:grid;gap:8px;min-width:15em;padding:12px 12px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-align:left;cursor:pointer;font:600 14px/1.2 var(--ft)}
 .sc:hover{border-color:var(--ink)}
-.sc:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.sc:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
 .sc[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink);background:var(--pan)}
 .sc small{color:var(--mut);font-weight:500;font-size:14px;margin-left:8px}
 .tl{display:flex;gap:2px}
@@ -84,25 +84,25 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .free .facts{grid-area:f}
 .weekbox{background:var(--wk,var(--pan));border-radius:16px;padding:12px}
 .week{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:var(--cols,repeat(8,minmax(0,1fr)));gap:8px}
-.day{position:relative;border:1.5px solid var(--ink);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px;min-height:176px;background:var(--bg)}
+.day{position:relative;border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;min-height:176px;background:var(--card)}
 .dh{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);border-bottom:1px solid var(--line);padding-bottom:2px}
 .dh .m{display:none}
 .day .stretch{position:absolute;inset:0;border-radius:inherit;z-index:1}
 .day .stretch:focus-visible{outline:none}
 .day.lnk{transition:box-shadow .15s}
 .day.lnk:hover{box-shadow:0 0 0 1.5px var(--ink),0 6px 16px rgba(0,0,0,.08)}
-.day.lnk:has(.stretch:focus-visible){outline:3px solid var(--blue);outline-offset:2px}
+.day.lnk:has(.stretch:focus-visible){outline:2px solid var(--azul);outline-offset:2px}
 .go{font-size:14px;font-weight:700}
-.wsum{color-scheme:dark;background:var(--bg);color:var(--ink);border:2px solid var(--ink)}
+.wsum{color-scheme:dark;background:var(--card);color:var(--ink);border:1px solid var(--line)}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .wsum{color-scheme:light}}
 :root[data-theme=dark] .wsum{color-scheme:light}
 :root[data-theme=light] .wsum{color-scheme:dark}
-.wsum ul{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}
+.wsum ul{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}
 .day>b{font-size:14px;font-weight:600;color:var(--mut)}
 .day>strong{font:700 20px/1.05 var(--fd)}
 .day ul{list-style:none;margin:0;padding:0;font-size:14px;display:grid;gap:2px}
 .day li{display:flex;align-items:center;gap:8px}
-.day li em{margin-left:auto;font-style:normal;font-weight:700;font-variant-numeric:tabular-nums}
+.day li em{margin-left:auto;font-style:normal;font-weight:500;font-variant-numeric:tabular-nums}
 .day>small{margin-top:auto;font-size:14px;color:var(--mut)}
 .day.off{border:1.5px dashed color-mix(in srgb,var(--mut) 45%,transparent);background:transparent;justify-content:flex-start;min-width:0}
 .day.off span{color:var(--mut);font-size:14px}
@@ -110,21 +110,21 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .facts{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px 40px;margin-top:8px}
 .facts h2{font-size:24px;margin-bottom:12px}
 .facts ol{margin:0;padding-left:24px;display:grid;gap:8px}
-.cta{border:2px solid var(--ink);border-radius:12px;padding:24px;display:grid;gap:12px;align-self:start;background:var(--pan)}
+.cta{border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;gap:12px;align-self:start;background:var(--pan)}
 .cta p{font-size:16px}
 @media(max-width:720px){.facts{grid-template-columns:minmax(0,1fr)}}
-.btn{font:700 16px var(--ft);min-height:48px;padding:0 24px;border-radius:8px;border:1.5px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;justify-self:start}
+.btn{font:700 16px var(--ft);min-height:48px;padding:0 24px;border-radius:8px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;justify-self:start}
 .btn.alt{background:transparent;color:var(--ink)}
 .btn.sm{min-height:44px;font-size:14px;padding:0 16px}
 .btn[disabled]{opacity:.5;cursor:default}
-.tool{border-top:1.5px solid var(--ink)}
+.tool{border-top:1px solid var(--ink)}
 .tool .grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:start;margin-top:24px}
-.fld{display:grid;gap:12px;padding:16px 0;border-top:1.5px solid var(--line)}
+.fld{display:grid;gap:12px;padding:16px 0;border-top:1px solid var(--line)}
 .fld:first-child{border-top:0;padding-top:0}
 .fld h3{font-size:20px}
 .help{font-size:14px;color:var(--mut)}
 .help.err{color:var(--red);font-weight:600}
-details.eq{border:2px solid var(--ink);border-radius:12px;margin-top:12px;background:var(--bg,#fff)}
+details.eq{border:1px solid var(--line);border-radius:12px;margin-top:12px;background:var(--bg,#fff)}
 details.eq summary{cursor:pointer;list-style:none;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px}
 details.eq summary::-webkit-details-marker{display:none}
 details.eq .eqt{display:flex;flex-direction:column;gap:2px}
@@ -149,14 +149,14 @@ details.eq .eqb{padding:0 12px 12px;border-top:1px solid var(--line,#ddd)}
 .ck input{width:20px;height:20px;accent-color:var(--ink);flex:none}
 .trow{display:grid;grid-template-columns:7.5em minmax(0,1fr) 4.6em;align-items:center;gap:12px;padding:4px 0;border-bottom:1px solid var(--line)}
 .tn{font-weight:600}
-.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1.5px solid var(--ink);border-radius:8px;overflow:hidden}
-.seg button{min-height:44px;border:0;border-left:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 14px var(--ft);cursor:pointer}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{min-height:44px;border:0;border-left:1px solid var(--line);background:transparent;color:var(--ink);font:600 14px var(--ft);cursor:pointer}
 .seg button:first-child{border-left:0}
 .seg button:hover{background:var(--pan)}
 .seg button[aria-pressed=true]{background:var(--c);color:var(--on)}
 .tv{text-align:right;font-variant-numeric:tabular-nums;color:var(--mut);font-size:14px;white-space:nowrap}
 @media(max-width:440px){.trow{grid-template-columns:minmax(0,1fr) auto}.seg{grid-column:1/-1;grid-row:2}}
-.panel{position:sticky;top:76px;border:1.5px solid var(--ink);border-radius:12px;padding:16px;display:grid;gap:4px}
+.panel{position:sticky;top:76px;border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:4px}
 .panel h3{font-size:24px}
 .tag{font:600 14px var(--ft);background:var(--pan);border:1px solid var(--line);border-radius:999px;padding:2px 8px;vertical-align:middle;margin-left:8px;letter-spacing:0}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:14px;color:var(--mut);margin-top:12px}
@@ -173,26 +173,26 @@ details.eq .eqb{padding:0 12px 12px;border-top:1px solid var(--line,#ddd)}
 .vv small{font-weight:600;color:var(--mut);font-size:14px}
 .panel .btn{margin-top:12px}
 @media(max-width:900px){.tool .grid{grid-template-columns:minmax(0,1fr)}.panel{position:static}}
-details.how{margin-top:24px;border-top:1.5px solid var(--line);padding-top:8px}
+details.how{margin-top:24px;border-top:1px solid var(--line);padding-top:8px}
 details.how summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center}
 details.how ul{margin:4px 0 0;padding-left:24px;display:grid;gap:8px;font-size:14px}
-.ficha{border-top:1.5px solid var(--ink);background:var(--pan)}
+.ficha{border-top:1px solid var(--line);background:var(--pan)}
 .ficha .lead{color:var(--ink)}
 .ficha .weekbox{--wk:var(--body);margin-top:24px}
 .av{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
-.av li{padding:12px 12px;border-radius:8px;background:var(--bg);border-left:4px solid var(--red);font-size:14px}
+.av li{padding:12px 12px;border-radius:8px;background:var(--card);border-left:2px solid var(--azul);font-size:14px}
 .av li.info{border-left-color:var(--blue)}
 .av li.al,.av li.foco{border-left-color:var(--yel)}
 .dias{display:grid;gap:16px;margin-top:12px}
 .dnav{position:sticky;top:var(--toph,60px);z-index:4;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-top:24px;padding:12px 0;background:var(--pan);box-shadow:0 0 0 100vmax var(--pan);clip-path:inset(0 -100vmax)}
 .dnav::-webkit-scrollbar{display:none}
-.dnav a{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;border-radius:999px;border:1.5px solid var(--ink);background:var(--bg);font:600 14px var(--ft);text-decoration:none;white-space:nowrap}
+.dnav a{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);font:600 14px var(--ft);text-decoration:none;white-space:nowrap}
 .dnav a span{color:var(--mut)}
 .dnav a svg{width:13px;height:13px;flex:none;color:var(--mut)}
 .dnav a:hover{background:var(--pan)}
 .dnav a[aria-current=true]{background:var(--ink);color:var(--bg)}
 .dnav a[aria-current=true] span,.dnav a[aria-current=true] svg{color:inherit;opacity:.75}
-.ses{background:var(--bg);border-radius:12px;padding:16px 16px;border-top:4px solid var(--ink);scroll-margin-top:62px}
+.ses{background:var(--card);border-radius:14px;padding:16px 16px;border:1px solid var(--line);scroll-margin-top:62px}
 .ses:focus{outline:none}
 .ses header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px}
 .ses h3{font-size:24px}
@@ -225,21 +225,21 @@ details.how ul{margin:4px 0 0;padding-left:24px;display:grid;gap:8px;font-size:1
 .lockwrap{display:grid;margin-top:4px}
 .lockwrap>.exs,.lockwrap>.lockcard{grid-area:1/1}
 .ses.lock .exs{filter:blur(5px);opacity:.7;user-select:none;pointer-events:none}
-.lockcard{position:sticky;top:calc(var(--toph,60px) + 84px);align-self:start;justify-self:center;margin:40px 0 32px;z-index:1;width:min(92%,400px);display:grid;justify-items:center;gap:12px;text-align:center;padding:24px 24px;border-radius:16px;background:var(--bg);border:2px solid var(--ink);box-shadow:0 14px 36px rgba(0,0,0,.18)}
+.lockcard{position:sticky;top:calc(var(--toph,60px) + 84px);align-self:start;justify-self:center;margin:40px 0 32px;z-index:1;width:min(92%,400px);display:grid;justify-items:center;gap:12px;text-align:center;padding:24px 24px;border-radius:16px;background:var(--card);border:1px solid var(--ink);box-shadow:0 14px 36px rgba(0,0,0,.18)}
 .lki{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center}
 .lki svg{width:20px;height:20px}
-.lockcard>b{font:800 24px/1 var(--fd)}
+.lockcard>b{font:700 24px/1 var(--fd)}
 .lockcard p{font-size:14px;color:var(--mut)}
 .lockcard .btn{justify-self:stretch}
 @media(max-width:720px){.ex{grid-template-columns:52px minmax(0,1fr);grid-template-areas:"c h" "v v" "t t" "s s";column-gap:12px}.corpo{width:52px;height:58px}.ev{justify-self:stretch;justify-content:space-between;gap:8px 12px;padding:8px 12px}.ev dd{font-size:18px}.ses{padding:12px}}
-.pay{margin-top:24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 32px;border:2px solid var(--ink);border-radius:16px;padding:24px;background:var(--bg)}
+.pay{margin-top:24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 32px;border:1px solid var(--ink);border-radius:14px;padding:24px;background:var(--card)}
 .pay h3{font-size:24px}
 .pay ul{margin:12px 0 0;padding-left:24px;display:grid;gap:4px}
 .price{display:grid;gap:8px;justify-items:start;align-content:center}
-.price>b{font:800 48px/1 var(--fd)}
+.price>b{font:700 48px/1 var(--fd)}
 .price small{font-size:14px;color:var(--mut)}
 @media(max-width:720px){.pay{grid-template-columns:minmax(0,1fr)}}
-.dl{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;border:2px solid var(--ink);border-radius:16px;padding:16px 16px;background:var(--bg)}
+.dl{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:16px 16px;background:var(--card)}
 .dl h3{font-size:24px;margin-right:auto}
 .dl-only{display:none}
 .has-dl .dl-only{display:inline-flex}
@@ -247,7 +247,7 @@ details.how ul{margin:4px 0 0;padding-left:24px;display:grid;gap:8px;font-size:1
 .status:empty{display:none}
 .linkb{font:600 14px var(--ft);background:none;border:0;color:var(--mut);text-decoration:underline;cursor:pointer;min-height:44px;padding:0 8px}
 @media(max-width:720px){.dl h3{flex-basis:100%}.dl .btn{flex:1 1 calc(50% - 10px)}}
-.prog{margin-top:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 32px;background:var(--bg);border-radius:12px;padding:24px}
+.prog{margin-top:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 32px;background:var(--card);border-radius:14px;padding:24px}
 .prog h3{font-size:24px;margin-bottom:8px}
 .prog p,.prog li{font-size:14px}
 .prog ul{margin:0;padding-left:24px;display:grid;gap:8px}
@@ -260,7 +260,7 @@ details.how ul{margin:4px 0 0;padding-left:24px;display:grid;gap:8px;font-size:1
 .ler li{break-inside:avoid;margin-bottom:8px}
 @media(max-width:720px){.ler ul{columns:1}}
 @media(max-width:720px){.prog{grid-template-columns:minmax(0,1fr)}}
-.foot{border-top:1.5px solid var(--ink);font-size:14px;color:var(--mut)}
+.foot{border-top:1px solid var(--line);font-size:14px;color:var(--mut)}
 .foot p{max-width:80ch}
 .foot details{margin-top:12px}
 .foot summary{cursor:pointer;font-weight:700;color:var(--ink);min-height:44px;display:flex;align-items:center}
@@ -269,16 +269,16 @@ details.how ul{margin:4px 0 0;padding-left:24px;display:grid;gap:8px;font-size:1
 @media(max-width:600px){.foot ul{columns:1}}
 .modal{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:16px}
 .modal[hidden]{display:none}
-.sheet{background:var(--bg);color:var(--ink);border-radius:16px;max-width:400px;width:100%;padding:24px;display:grid;gap:12px;max-height:calc(100% - 16px);overflow:auto}
+.sheet{background:var(--card);color:var(--ink);border-radius:16px;max-width:400px;width:100%;padding:24px;display:grid;gap:12px;max-height:calc(100% - 16px);overflow:auto}
 .sheet h3{font-size:30px}
-.qr{position:relative;width:196px;justify-self:center;padding:12px;background:#fff;border-radius:8px;border:1.5px solid var(--line)}
+.qr{position:relative;width:196px;justify-self:center;padding:12px;background:#fff;border-radius:8px;border:1px solid var(--line)}
 .qr svg{display:block;width:176px;height:176px}
 .qr span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:#141414;padding:4px 12px;border-radius:6px;font-weight:700;font-size:14px;border:1.5px solid #141414;white-space:nowrap}
 .sheet .row{display:flex;flex-wrap:wrap;gap:12px}
 .sheet.wide{max-width:560px}
 .sheet h4{font:700 16px var(--ft);margin:8px 0 0}
 .opts{display:grid;gap:8px}
-.opt{display:grid;gap:2px;text-align:left;min-height:48px;padding:12px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;font:500 16px var(--ft)}
+.opt{display:grid;gap:2px;text-align:left;min-height:48px;padding:12px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font:500 16px var(--ft)}
 .opt small{font-size:14px;color:var(--mut)}
 .opt:hover{border-color:var(--ink)}
 .opt[aria-pressed=true]{border-color:var(--ink);background:var(--pan);box-shadow:inset 4px 0 0 var(--ink)}
@@ -286,9 +286,9 @@ details.how ul{margin:4px 0 0;padding-left:24px;display:grid;gap:8px;font-size:1
 .cit{text-decoration:none;background:color-mix(in srgb,var(--yel) 40%,transparent);color:var(--ink);padding:.04em .4em;border-radius:.5em;-webkit-box-decoration-break:clone;box-decoration-break:clone;white-space:nowrap}
 a.cit:hover{background:color-mix(in srgb,var(--yel) 65%,transparent);text-decoration:underline}
 a.cit::after{content:"↗";font-size:.8em;margin-left:.2em;opacity:.7}
-.fx{font-size:14px;line-height:1.5;padding:8px 12px;border-radius:8px;background:var(--pan);border-left:3px solid var(--blue)}
+.fx{font-size:14px;line-height:1.5;padding:8px 12px;border-radius:8px;background:var(--pan);border-left:2px solid var(--azul)}
 .fx:empty{display:none}
-.alerta{margin-top:8px;padding:12px 12px;border-radius:8px;background:var(--pan);border-left:4px solid var(--red);font-size:14px}
+.alerta{margin-top:8px;padding:12px 12px;border-radius:8px;background:var(--pan);border-left:2px solid var(--azul);font-size:14px}
 
 
 /* telas */
@@ -299,7 +299,7 @@ a.linkb{display:inline-flex;align-items:center}
 .hero h1{font-size:clamp(40px,6vw,72px);line-height:1}
 .hero .lead{font-size:18px;max-width:680px;margin-top:16px}
 .acts{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;margin:24px 0 12px}
-.exemplo{margin:64px 0 0;padding-top:40px;border-top:1.5px solid var(--line)}
+.exemplo{margin:64px 0 0;padding-top:40px;border-top:1px solid var(--line)}
 .exh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
 .exh h2{font-size:30px}
 .exl{font-size:14px;color:var(--mut);margin:12px 0 12px;max-width:80ch}
@@ -309,17 +309,17 @@ a.linkb{display:inline-flex;align-items:center}
 .fim{background:var(--pan)}
 .fim .cta{border:0;background:transparent;padding:0}
 .steps{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.steps a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 8px;border-radius:999px;border:1.5px solid var(--line);text-decoration:none;font-weight:600;color:var(--mut)}
+.steps a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 8px;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-weight:600;color:var(--mut)}
 .steps a b{width:28px;height:28px;border-radius:999px;display:grid;place-items:center;background:var(--pan);color:var(--ink);font:700 16px/1 var(--fd)}
 .steps a.feito{color:var(--ink);border-color:var(--ink)}
 .steps a[aria-current=step]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.steps a[aria-current=step] b{background:var(--bg);color:var(--ink)}
+.steps a[aria-current=step] b{background:var(--card);color:var(--ink)}
 .steps a:hover{border-color:var(--ink)}
 .wiz{position:sticky;bottom:0;z-index:5;margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);border-radius:12px 12px 0 0;font-size:14px}
 .wiz>span{display:grid;gap:2px}
 .wiz>span b{font-size:16px}
 .wiz .acoes{display:flex;gap:8px;flex:none}
-.wiz .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.wiz .btn{background:var(--card);color:var(--ink);border-color:var(--bg)}
 .wiz .btn.ghost{background:transparent;color:var(--bg);border-color:color-mix(in srgb,var(--bg) 45%,transparent)}
 .vazio-f{display:grid;justify-items:start;gap:16px;padding:24px 0}
 .resumo{font-size:14px;color:var(--mut);margin-top:8px}
@@ -357,21 +357,53 @@ p,li{text-wrap:pretty}
 .legal summary{cursor:pointer;font-weight:600}
 .legal details>div{margin-top:8px;display:grid;gap:8px;font-size:14px;color:var(--mut)}
 @media(max-width:860px){.passos{grid-template-columns:minmax(0,1fr)}}
+
+/* identidade gymas */
+.mark{display:inline-flex;align-items:flex-start;gap:0;font:700 26px/1 var(--fd);letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.mark sup{font:500 10px/1 var(--fd);letter-spacing:0;color:var(--azul);margin:2px 0 0 1px;vertical-align:baseline}
+.sig{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sig em{font:italic 500 15px var(--fd);color:var(--mut)}
+.btn{border-radius:10px;font:500 16px var(--ft)}
+.btn.pri{background:var(--azul);border-color:var(--azul);color:var(--on-azul)}
+.btn.pri:hover{filter:brightness(1.08)}
+.wiz .btn.pri{background:#1F3FD6;border-color:#1F3FD6;color:#FFFFFF}
+.chip{border-radius:10px;border:1px solid var(--line);background:var(--card);font:500 16px var(--ft)}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true]{border-color:var(--ink)}
+.dnav a,.sc,.steps a,.swap{border-radius:10px}
+.swap{border:0;color:var(--azul);padding:0 4px;font:500 14px var(--ft)}
+.swap:hover{text-decoration:underline}
+.seg{border-radius:10px}
+.vv,.tv,.day em,.ev dd,.tl i,.steps a b,.passos li::before{font-family:var(--fm)}
+.wiz>span b{font:500 16px/1.3 var(--ft)}
+.vv,.steps a b,.passos li::before,.tl i{font-weight:500}
+.ev dd{font-weight:500;font-size:18px;letter-spacing:-.01em}
+.ev div:first-child dd{color:var(--azul)}
+.ev dt,.dh,.exl{font-family:var(--ft)}
+.dh{font-family:var(--fm);font-weight:400;font-size:11px;letter-spacing:.08em}
+.tl i{font-weight:500;font-size:11px}
+.day strong,.ses h3,.passos b,.spg>h3,.faq summary{letter-spacing:-.01em}
+.cit{background:color-mix(in srgb,var(--azul) 9%,transparent);color:var(--azul);font-family:var(--fd);font-style:italic;font-weight:500;padding:0 .25em;border-radius:6px}
+a.cit:hover{background:color-mix(in srgb,var(--azul) 16%,transparent);text-decoration:underline}
+a.cit::after{content:none}
+.fx{border-left:2px solid var(--azul);border-radius:0 10px 10px 0}
+.obs,.tec{border-left:2px solid var(--azul)}
+.hero h1{letter-spacing:-.025em}
 </style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular pro conteúdo</a>
 <header class="top">
-  <a class="mark" href="#/"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="12" fill="var(--red)"/><circle cx="13" cy="13" r="8.5" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.5"/><circle cx="13" cy="13" r="3.2" fill="var(--bg)"/></svg>Ficha <small>nome provisório</small></a>
+  <a class="mark" href="#/" aria-label="gymas, início">gymas<sup>1</sup></a>
   <nav class="nav" aria-label="Telas"><a href="#/" data-v="inicio">Início</a><a href="#/divisoes" data-v="divisoes">Divisões</a><a href="#/montar/1" data-v="montar">Montar</a><a href="#/ficha" data-v="ficha">Sua ficha</a></nav>
 </header>
 <main id="conteudo">
   <section id="inicio" class="band hero" data-view="inicio" aria-labelledby="h-ini">
     <div class="wrap">
       <div class="herot">
-        <h1 id="h-ini">Sua ficha de treino, montada com estudo</h1>
-        <p class="lead">Você diz os dias, as máquinas da sua academia e o foco de cada músculo. A divisão, o volume e os exercícios saem do que os estudos mostram, e cada escolha vem com a referência.</p>
-        <div class="acts"><a class="btn" href="#/montar/1">Montar minha ficha</a><a class="btn sec" href="#/divisoes">Ver as divisões</a></div>
+        <h1 id="h-ini">Você entendeu a teoria. Falta a ficha.</h1>
+        <p class="lead">A Gymas monta a sua ficha a partir dos seus dias, das máquinas da sua academia e do foco de cada músculo. A divisão, o volume e os exercícios saem dos estudos, e cada escolha vem com a referência.</p>
+        <div class="acts"><a class="btn pri" href="#/montar/1">Montar minha ficha</a><a class="btn sec" href="#/divisoes">Ver as divisões</a></div>
         <p class="help">O 1º dia sai de graça e sem cadastro. A ficha completa custa R$ 9,90.</p>
       </div>
       <div class="exemplo">
@@ -408,7 +440,7 @@ p,li{text-wrap:pretty}
         </div>
         <aside class="cta">
           <p>Esse é o exemplo com academia completa e volume Normal pra todo mundo. A sua ficha sai com os aparelhos da sua academia, o seu foco e o tempo que você tem.</p>
-          <button type="button" class="btn" id="fgo">Montar a minha</button>
+          <button type="button" class="btn pri" id="fgo">Montar a minha</button>
         </aside>
       </div>
     </div>
@@ -432,6 +464,7 @@ p,li{text-wrap:pretty}
       <p class="lead" id="m-lead"></p>
       <div class="grid">
         <form id="form" novalidate>
+          <div class="fld" data-step="1" role="group" aria-labelledby="l-perfil"><h3 id="l-perfil">Seu treino</h3><div class="chips" id="f-perfil"></div><p class="fx" id="x-perfil"></p></div>
           <div class="fld" data-step="1" role="group" aria-labelledby="l-dias"><h3 id="l-dias">Dias que você treina</h3><div class="chips" id="f-dias"></div><p class="help" id="h-dias">De 2 a 6 dias.</p><p class="fx" id="x-dias"></p></div>
           <div class="fld" data-step="1" role="group" aria-labelledby="l-dur"><h3 id="l-dur">Tempo por treino</h3><div class="chips" id="f-dur"></div><p class="fx" id="x-dur"></p></div>
           <div class="fld" data-step="1" role="group" aria-labelledby="l-niv"><h3 id="l-niv">Experiência</h3><div class="chips" id="f-niv"></div><p class="fx" id="x-niv"></p></div>
@@ -459,6 +492,7 @@ p,li{text-wrap:pretty}
           <li>Descanso de 3 min nos compostos e 2 nos outros: acima de 90 s a hipertrofia já não muda (Singer 2024), o resto é pra render nas séries seguintes.</li>
           <li>O tempo do treino limita as séries (~3 min por série). Quando falta espaço, sai primeiro de Manter, depois de Normal.</li>
           <li>Iniciante: 70% do volume, 2 séries por exercício e 2–3 RIR. O RIR é escolha do gerador; a base só pede técnica antes de carga.</li>
+          <li>Treino feminino: mais ênfase nos inferiores. Os treinos começam pelas pernas e pelo glúteo, e as divisões sugeridas têm mais volume de perna. As regras são as mesmas pros dois (Roberts 2020; Refalo 2025).</li>
           <li>Automática: testa as divisões possíveis pros seus dias e fica com a que encaixa mais volume sem furar essas regras. No empate, fica com a que você já faz.</li>
         </ul>
       </details>
@@ -496,7 +530,8 @@ p,li{text-wrap:pretty}
 </main>
 <footer class="band foot">
   <div class="wrap">
-    <p>Ficha é um nome provisório. Protótipo: o pagamento é simulado, e antes de vender falta o responsável técnico com CREF. Divisões, volume, reps e escolha de exercícios vêm da base de estudos de hipertrofia.</p>
+    <p class="sig"><span class="mark">gymas<sup>1</sup></span><em>(Gymas, 2026)</em></p>
+    <p>Protótipo: o pagamento é simulado, e antes de vender falta o responsável técnico com CREF. Divisões, volume, reps e escolha de exercícios vêm da base de estudos de hipertrofia.</p>
     <details>
       <summary>Estudos usados</summary>
       <ul>
@@ -521,6 +556,7 @@ p,li{text-wrap:pretty}
         <li>Rodríguez-Ridao 2020: inclinação do supino</li>
         <li>Bloomquist 2013 e Kubo 2019: profundidade do agachamento</li>
         <li>Wolf 2025 e Gschneidner 2025 (preprint): parciais alongadas</li>
+        <li>Roberts 2020 e Refalo 2025: hipertrofia em homens e mulheres</li>
       </ul>
     </details>
     <nav class="legal" aria-label="Termos e privacidade">
@@ -548,7 +584,7 @@ p,li{text-wrap:pretty}
     <h3 id="pix-h">Pague R$ 9,90 no Pix</h3>
     <div class="qr"><svg id="qr" viewBox="0 0 29 29" shape-rendering="crispEdges" aria-hidden="true"></svg><span>QR de exemplo</span></div>
     <p>Protótipo: nada é cobrado e esse QR não é um Pix. No site de verdade, a ficha libera assim que o pagamento cai, e o link chega no seu e-mail.</p>
-    <div class="row"><button type="button" class="btn" id="pix-ok">Simular pagamento aprovado</button><button type="button" class="btn alt" id="pix-x">Voltar</button></div>
+    <div class="row"><button type="button" class="btn pri" id="pix-ok">Simular pagamento aprovado</button><button type="button" class="btn alt" id="pix-x">Voltar</button></div>
   </div>
 </div>
 <script>
@@ -724,8 +760,8 @@ const FICHA = (() => {
       { id: 'ul', fam: 'ul', nome: 'Upper/Lower 2x', s: ['U1', 'L1', 'U2', 'L2'], desc: 'Superiores e inferiores alternados, tudo 2x. Padrão da base pra 4 dias.' },
       { id: 'ap', fam: 'ap', nome: 'Anterior/Posterior 2x', s: ['A1', 'P1', 'A2', 'P2'], desc: 'Frente e trás do corpo, tudo 2x. Divide o volume mais por igual entre os dias.' },
       { id: 'tl', fam: 'tl', nome: 'Torso/Limbs 2x', s: ['TO1', 'LI1', 'TO2', 'LI2'], desc: 'Torso (peito, costas e ombros) e Limbs (pernas e braços). Bom com foco em braço; as pernas ficam mais enxutas.' },
-      { id: 'pplu', fam: 'ppl', nome: 'PPL + Upper', s: ['PU', 'PL', 'LG', 'UP'], desc: 'Superiores 2x e pernas 1x. Combina com foco em cima e pernas em Manter.' },
-      { id: 'ppll', fam: 'ppl', nome: 'PPL + Lower', s: ['PU', 'PL', 'LG', 'LO'], desc: 'Pernas 2x, com os dias de perna intercalados, e superiores 1x. Combina com foco em pernas e glúteos.' },
+      { id: 'pplu', fam: 'ppl', sup: 1, nome: 'PPL + Upper', s: ['PU', 'PL', 'LG', 'UP'], desc: 'Superiores 2x e pernas 1x. Combina com foco em cima e pernas em Manter.' },
+      { id: 'ppll', fam: 'ppl', inf: 1, nome: 'PPL + Lower', s: ['PU', 'PL', 'LG', 'LO'], desc: 'Pernas 2x, com os dias de perna intercalados, e superiores 1x. Combina com foco em pernas e glúteos.' },
       { id: 'ppla', fam: 'ppl', nome: 'PPL + Anterior', s: ['PU', 'PL', 'LG', 'AN'], desc: 'Peito, ombros, tríceps e quadríceps 2x; o resto 1x.' },
       { id: 'pplp', fam: 'ppl', nome: 'PPL + Posterior', s: ['PU', 'PL', 'LG', 'PO'], desc: 'Costas, bíceps, posteriores e glúteos 2x; o resto 1x.' },
       { id: 'fb4', fam: 'fb', nome: 'Full body 4x', s: ['FA', 'FB', 'FC', 'FD'], desc: '4 treinos de corpo todo, com menos séries por músculo em cada um.' }
@@ -733,12 +769,12 @@ const FICHA = (() => {
     5: [
       { id: 'pplul', fam: 'ppl', nome: 'PPL + Upper/Lower', s: ['PU', 'PL', 'LG', 'UP', 'LO'], desc: 'Padrão da base pra 5 dias: tudo 2x.' },
       { id: 'pplap', fam: 'ppl', nome: 'PPL + Anterior/Posterior', s: ['PU', 'PL', 'LG', 'AN', 'PO'], desc: 'Anterior e Posterior no lugar do Upper e Lower: tudo 2x, com outra combinação.' },
-      { id: 'pplufb', fam: 'ppl', nome: 'PPL + Upper + Full body', s: ['PU', 'PL', 'LG', 'UP', 'FX'], desc: 'Superiores até 3x e pernas 2x, com o full body completando o que falta.' },
-      { id: 'ppllfb', fam: 'ppl', nome: 'PPL + Lower + Full body', s: ['PU', 'PL', 'LG', 'LO', 'FX'], desc: 'Pernas até 3x e superiores 2x: bom pra foco em pernas e glúteos.' },
+      { id: 'pplufb', fam: 'ppl', sup: 1, nome: 'PPL + Upper + Full body', s: ['PU', 'PL', 'LG', 'UP', 'FX'], desc: 'Superiores até 3x e pernas 2x, com o full body completando o que falta.' },
+      { id: 'ppllfb', fam: 'ppl', inf: 1, nome: 'PPL + Lower + Full body', s: ['PU', 'PL', 'LG', 'LO', 'FX'], desc: 'Pernas até 3x e superiores 2x: bom pra foco em pernas e glúteos.' },
       { id: 'ulfb', fam: 'ul', nome: 'Upper/Lower + Full body', s: ['U1', 'L1', 'U2', 'L2', 'FX'], desc: 'Upper/Lower 2x com um full body de 5º dia.' },
       { id: 'apfb', fam: 'ap', nome: 'Anterior/Posterior + Full body', s: ['A1', 'P1', 'A2', 'P2', 'FX'], desc: 'Anterior/Posterior 2x com um full body de 5º dia.' },
-      { id: 'u3l2', fam: 'ul', nome: 'Upper 3x + Lower 2x', s: ['U1', 'L1', 'U2', 'L2', 'U3'], desc: 'Superiores 3x e pernas 2x: bom com foco em peito, costas, ombros ou braços.' },
-      { id: 'l3u2', fam: 'ul', nome: 'Lower 3x + Upper 2x', s: ['L1', 'U1', 'L2', 'U2', 'L3'], desc: 'Pernas 3x e superiores 2x: bom com foco em pernas e glúteos.' },
+      { id: 'u3l2', fam: 'ul', sup: 1, nome: 'Upper 3x + Lower 2x', s: ['U1', 'L1', 'U2', 'L2', 'U3'], desc: 'Superiores 3x e pernas 2x: bom com foco em peito, costas, ombros ou braços.' },
+      { id: 'l3u2', fam: 'ul', inf: 2, nome: 'Lower 3x + Upper 2x', s: ['L1', 'U1', 'L2', 'U2', 'L3'], desc: 'Pernas 3x e superiores 2x: bom com foco em pernas e glúteos.' },
       { id: 'tlfb', fam: 'tl', nome: 'Torso/Limbs + Full body', s: ['TO1', 'LI1', 'TO2', 'LI2', 'FX'], desc: 'Torso/Limbs 2x com um full body de 5º dia, que reforça as pernas.' }
     ],
     6: [
@@ -927,7 +963,8 @@ const FICHA = (() => {
         const k = occ[m] || 0;
         occ[m] = k + 1;
         const menu = MENU[m][k % MENU[m].length];
-        const pats = [...new Set(e.pats.concat(menu, ALLP[m]))].filter(p => vAvail(p, cfg.eq).length);
+        let pats = [...new Set(e.pats.concat(menu, ALLP[m]))].filter(p => vAvail(p, cfg.eq).length);
+        if (cfg.perfil === 'f' && m === 'gluteo') pats = [...new Set((k % 2 ? ['hip', 'coice', 'abdutora'] : ['hip', 'abdutora', 'coice']).concat(pats))].filter(p => vAvail(p, cfg.eq).length);
         if (!pats.length) continue;
         // regra do alongado: se a semana ainda não teve, a última ocorrência começa por um exercício alongado
         if (FORCA_AL.includes(m) && !teveAl[m] && k === occTot[m] - 1) {
@@ -971,7 +1008,9 @@ const FICHA = (() => {
         }
       }
       const fim = m => (m === 'pant' || m === 'abd') ? 1 : 0;
-      S.rows = S.rows.map((r, ix) => ({ r, ix })).sort((x, y) => fim(x.r.m) - fim(y.r.m) || (x.r.bonus - y.r.bonus) || TR[x.r.tipo] - TR[y.r.tipo] || x.ix - y.ix).map(x => x.r);
+      // feminino: perna antes de cima, e o glúteo abre a perna (composto antes de isolado)
+      const fem = cfg.perfil === 'f', perna = m => fem && ['gluteo', 'post', 'quad', 'adutor'].includes(m) ? 0 : 1, glu = m => fem && m === 'gluteo' ? 0 : 1;
+      S.rows = S.rows.map((r, ix) => ({ r, ix })).sort((x, y) => fim(x.r.m) - fim(y.r.m) || (x.r.bonus - y.r.bonus) || perna(x.r.m) - perna(y.r.m) || TR[x.r.tipo] - TR[y.r.tipo] || glu(x.r.m) - glu(y.r.m) || x.ix - y.ix).map(x => x.r);
       S.rows.forEach((r, ix) => { r.prep = ix === 0 ? 'Aquec. + 2 FS' : '1 FS'; });
       if (lv.backoff) { const f = S.rows.find(r => r.tipo === 'c'); if (f) f.tec = 'Opcional: top set de 4–6 reps + 2 back-offs com 10–15% menos carga e 8–10 reps.'; }
       S.series = S.rows.reduce((s, r) => s + r.sets, 0);
@@ -1058,7 +1097,7 @@ const FICHA = (() => {
       const sessoes = montar(seq, dias, cfg, A, lv, troca);
       const an = analisar(sessoes, cfg, T, cap);
       const ja = cfg.atual && cfg.atual === o.fam;
-      testes.push({ split: o, seq, sessoes, an, T, dias, cap, nivel: lv, cfg: cfg0, rampa: !ja, score: an.score + opts.indexOf(o) * 0.4 - (ja ? 0.5 : 0) });
+      testes.push({ split: o, seq, sessoes, an, T, dias, cap, nivel: lv, cfg: cfg0, rampa: !ja, score: an.score + opts.indexOf(o) * 0.4 - (ja ? 0.5 : 0) + (cfg0.perfil === 'f' ? (o.inf ? -2 * o.inf : 0) + (o.sup ? 2 : 0) : 0) });
     }
     testes.sort((a, b) => a.score - b.score);
     const best = testes[0];
@@ -1101,9 +1140,15 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     return `<svg class="corpo t${t}" viewBox="0 0 104 114" aria-hidden="true"><g class="base">${BASE}</g>${lado('f')}<g transform="translate(54 0)"><g class="base">${BASE}</g>${lado('b')}</g></svg>`;
   }
   const TIERS_LIVRE = { peito: 1, costas: 1, ombros: 1, biceps: 1, triceps: 1, quad: 1, post: 1, gluteo: 1, adutor: 0, pant: 1, abd: 0 };
+  // ponto de partida do foco por perfil: a ciência é a mesma, o objetivo mais comum é que muda
+  const PERFIL = [['m', 'Masculino'], ['f', 'Feminino']];
+  const TIERS_PERFIL = {
+    m: { peito: 1, costas: 1, ombros: 1, biceps: 1, triceps: 1, quad: 1, post: 1, gluteo: 0, adutor: 0, pant: 1, abd: 0 },
+    f: { peito: 0, costas: 1, ombros: 1, biceps: 0, triceps: 0, quad: 2, post: 2, gluteo: 2, adutor: 1, pant: 1, abd: 1 }
+  };
   const DEF = {
     livre: { nd: 4, split: 'ul' },
-    cfg: { dias: [0, 1, 3, 4], dur: 75, nivel: 'int', atual: 'abc', split: 'auto', preset: 'bairro', eq: F.PRESETS.bairro.eq.slice(), halter: F.PRESETS.bairro.halter, tiers: { peito: 1, costas: 1, ombros: 2, biceps: 0, triceps: 0, quad: 1, post: 1, gluteo: 2, adutor: 0, pant: 1, abd: 0 } },
+    cfg: { perfil: 'm', dias: [0, 1, 3, 4], dur: 75, nivel: 'int', atual: 'abc', split: 'auto', preset: 'bairro', eq: F.PRESETS.bairro.eq.slice(), halter: F.PRESETS.bairro.halter, tiers: { peito: 1, costas: 1, ombros: 1, biceps: 1, triceps: 1, quad: 1, post: 1, gluteo: 0, adutor: 0, pant: 1, abd: 0 } },
     pago: false,
     troca: {},
     view: 'inicio',
@@ -1200,6 +1245,7 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     h.textContent = aviso || `${nd} ${nd === 1 ? 'dia marcado' : 'dias marcados'}, de 2 a 6.`;
     h.classList.toggle('err', !!aviso || nd < 2);
     explica();
+    $('#f-perfil').innerHTML = PERFIL.map(([k, n]) => chip('perfil', k, n, (c.perfil || 'm') === k)).join('');
     $('#f-dur').innerHTML = [45, 60, 75, 90].map(v => chip('dur', v, `${v} min`, c.dur === v)).join('');
     $('#f-niv').innerHTML = NIV.map(([k, n, s]) => chip('nivel', k, `${n}<small>${s}</small>`, c.nivel === k)).join('');
     $('#f-atual').innerHTML = ATUAL.map(([k, n]) => chip('atual', k, n, c.atual === k)).join('');
@@ -1232,6 +1278,9 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     $('#x-dur').innerHTML = td;
     const pn = { ini: 'Iniciante: 70% das séries do intermediário, 2 séries por exercício e mais longe da falha (RIR 2–3 nos compostos). Sem as faixas de 4–6 reps: técnica antes de carga.', int: `Intermediário: o volume cheio do seu foco (peito no Normal, por exemplo, ${F.MUSC.peito.alvo[1]} séries por semana), perto da falha (RIR 0–3).`, ava: 'Avançado: o mesmo volume do intermediário, mais um top set opcional (4–6 reps + 2 back-offs) no 1º composto de cada treino. Volume acima disso só se estagnar, na reavaliação da semana 8.' };
     $('#x-niv').innerHTML = pn[c.nivel];
+    $('#x-perfil').innerHTML = c.perfil === 'f'
+      ? 'Mais ênfase nos inferiores: os treinos começam pelas pernas e pelo glúteo, e as divisões sugeridas têm mais volume de perna. Homens e mulheres ganham músculo num ritmo relativo parecido (Roberts 2020; Refalo 2025), então as regras da ficha são as mesmas.'
+      : '';
     $('#x-atual').innerHTML = !ok ? 'Se a divisão sugerida for a que você já faz, a ficha começa cheia; se mudar, entra com 3 semanas de rampa.' : R.rampa ? `${esc(R.split.nome)} é nova pra você: as semanas 1 a 3 entram com 60, 75 e 90% das séries pra adaptar, e da 4 em diante é a ficha cheia.` : `Você já treina em ${esc(R.split.nome.replace(/ \d+x$/, ''))}: a ficha começa cheia, sem rampa de entrada.`;
     $('#x-split').innerHTML = !ok ? '' : `<b>${esc(R.split.nome)}:</b> ${esc(R.split.desc)}${R.auto ? ' Na automática o gerador testa todas as divisões pros seus dias e fica com a que encaixa mais volume sem furar 2x por semana e 48\u00a0h.' : ''}`;
   }
@@ -1306,10 +1355,10 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     const id = `id="s-${S.dia}" tabindex="-1"`;
     if (!S.rows.length) return `<article class="ses" ${id}>${h}<p class="vazio">Nenhum músculo coube nesse dia com esse foco e esses aparelhos: dá pra descansar.</p></article>`;
     if (aberto) return `<article class="ses" ${id}>${h}<div class="exs">${S.rows.map(exAberto).join('')}</div></article>`;
-    return `<article class="ses lock" ${id}>${h}<div class="lockwrap"><div class="exs" inert aria-hidden="true">${S.rows.map(exFechado).join('')}</div><div class="lockcard"><span class="lki">${LOCK}</span><b>Treino bloqueado</b><p>Os ${S.rows.length} exercícios desse dia, com séries, reps, RIR, descanso e execução, liberam na ficha completa.</p><button type="button" class="btn" data-unlock="${S.dia}">Desbloquear por R$ 9,90</button><a class="linkb" href="#pay">O que vem na ficha completa</a></div></div></article>`;
+    return `<article class="ses lock" ${id}>${h}<div class="lockwrap"><div class="exs" inert aria-hidden="true">${S.rows.map(exFechado).join('')}</div><div class="lockcard"><span class="lki">${LOCK}</span><b>Treino bloqueado</b><p>Os ${S.rows.length} exercícios desse dia, com séries, reps, RIR, descanso e execução, liberam na ficha completa.</p><button type="button" class="btn pri" data-unlock="${S.dia}">Desbloquear por R$ 9,90</button><a class="linkb" href="#pay">O que vem na ficha completa</a></div></div></article>`;
   }
 
-  const pagar = () => `<div class="pay" id="pay"><div><h3>Ficha completa</h3><ul><li>Os ${R.sessoes.length} treinos com execução e o porquê de cada exercício</li><li>Progressão de 8 semanas: rampa de entrada, progressão dupla e deload</li><li>Troca de exercício entre os aparelhos que você marcou</li><li>PDF e planilha pra anotar as cargas</li></ul></div><div class="price"><b>R$ 9,90</b><small>pagamento único no Pix</small><button type="button" class="btn" id="abrir-pix">Desbloquear a ficha</button><small>Protótipo: o pagamento é simulado.</small></div></div>`;
+  const pagar = () => `<div class="pay" id="pay"><div><h3>Ficha completa</h3><ul><li>Os ${R.sessoes.length} treinos com execução e o porquê de cada exercício</li><li>Progressão de 8 semanas: rampa de entrada, progressão dupla e deload</li><li>Troca de exercício entre os aparelhos que você marcou</li><li>PDF e planilha pra anotar as cargas</li></ul></div><div class="price"><b>R$ 9,90</b><small>pagamento único no Pix</small><button type="button" class="btn pri" id="abrir-pix">Desbloquear a ficha</button><small>Protótipo: o pagamento é simulado.</small></div></div>`;
 
   const baixar = () => `<div class="dl"><h3>Ficha liberada</h3><button type="button" class="btn sm dl-only" id="dl-pdf">Baixar PDF</button><button type="button" class="btn sm dl-only" id="dl-xlsx">Baixar planilha</button><button type="button" class="btn sm alt" id="copiar">Copiar pra planilha</button><button type="button" class="linkb" id="relock">Bloquear de novo (demo)</button><p class="status" id="status" role="status">${esc(statusTxt)}</p></div>`;
 
@@ -1325,7 +1374,7 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     const av = avs.length ? `<ul class="av">${avs.map(a => `<li class="${a.tipo}">${esc(a.txt)}</li>`).join('')}</ul>` : '';
     const nav = `<nav class="dnav" aria-label="Ir pro treino do dia">${R.sessoes.map((S, i) => `<a href="#s-${S.dia}" data-ir="${S.dia}">${!st.pago && i > 0 ? LOCK : ''}<span>${F.DIAS[S.dia]}</span>${esc(S.nome)}</a>`).join('')}</nav>`;
     const c = st.cfg, acad = (ACAD.find(a => a[0] === c.preset) || [0, 'Academia personalizada'])[1];
-    const resumo = `<p class="resumo">${R.sessoes.map(S => F.DIAS[S.dia]).join(', ')}. ${c.dur} min por treino. ${F.NIVEL[c.nivel].nome}. ${esc(acad)}. <a href="#/montar/1">Editar respostas</a></p>`;
+    const resumo = `<p class="resumo">${R.sessoes.map(S => F.DIAS[S.dia]).join(', ')}. ${c.dur} min por treino. ${F.NIVEL[c.nivel].nome}. Treino ${c.perfil === 'f' ? 'feminino' : 'masculino'}. ${esc(acad)}. <a href="#/montar/1">Editar respostas</a></p>`;
     $('#ficha-in').innerHTML = `<h1>Sua ficha: ${esc(R.split.nome)}</h1>${resumo}<p class="lead">${esc(porque())}</p>${semana(R, true)}${av}${nav}<div class="dias">${R.sessoes.map((S, i) => sessao(S, st.pago || i === 0)).join('')}</div>${st.pago ? baixar() + progressao() : pagar()}`;
     marcaDia();
   }
@@ -1340,29 +1389,28 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     return null;
   }
 
-  const REFS = {"Schoenfeld 2016": "https://doi.org/10.1007/s40279-016-0543-8", "Schoenfeld 2017": "https://doi.org/10.1080/02640414.2016.1210197", "Pelland 2026": "https://doi.org/10.1007/s40279-025-02344-w", "Ramos-Campo 2024": "https://doi.org/10.1519/JSC.0000000000004774", "Remmert 2025": "https://doi.org/10.51224/SRXIV.537", "Robinson 2024": "https://doi.org/10.1007/s40279-024-02069-2", "Morton 2016": "https://doi.org/10.1152/japplphysiol.00154.2016", "Singer 2024": "https://doi.org/10.3389/fspor.2024.1429789", "Plotkin 2022": "https://doi.org/10.7717/peerj.14142", "Kassiano 2022": "https://doi.org/10.1519/JSC.0000000000004258", "Maeo 2021": "https://doi.org/10.1249/MSS.0000000000002523", "Maeo 2022": "https://doi.org/10.1080/17461391.2022.2100279", "Kassiano 2025": "https://doi.org/10.1055/a-2517-0509", "Kinoshita 2026": "https://doi.org/10.1249/MSS.0000000000003957", "Kinoshita 2023": "https://doi.org/10.3389/fphys.2023.1272106", "Plotkin 2023": "https://doi.org/10.3389/fphys.2023.1279170", "Larsen 2025": "https://doi.org/10.3389/fphys.2025.1611468", "Andersen 2014": "https://pubmed.ncbi.nlm.nih.gov/24662157/", "Rodríguez-Ridao 2020": "https://doi.org/10.3390/ijerph17197339", "Bloomquist 2013": "https://doi.org/10.1007/s00421-013-2642-7", "Kubo 2019": "https://doi.org/10.1007/s00421-019-04181-y", "Wolf 2025": "https://doi.org/10.7717/peerj.18904", "Gschneidner 2025": "https://doi.org/10.51224/SRXIV.485"};
+  const REFS = {"Schoenfeld 2016": "https://doi.org/10.1007/s40279-016-0543-8", "Schoenfeld 2017": "https://doi.org/10.1080/02640414.2016.1210197", "Pelland 2026": "https://doi.org/10.1007/s40279-025-02344-w", "Ramos-Campo 2024": "https://doi.org/10.1519/JSC.0000000000004774", "Remmert 2025": "https://doi.org/10.51224/SRXIV.537", "Robinson 2024": "https://doi.org/10.1007/s40279-024-02069-2", "Morton 2016": "https://doi.org/10.1152/japplphysiol.00154.2016", "Singer 2024": "https://doi.org/10.3389/fspor.2024.1429789", "Plotkin 2022": "https://doi.org/10.7717/peerj.14142", "Kassiano 2022": "https://doi.org/10.1519/JSC.0000000000004258", "Maeo 2021": "https://doi.org/10.1249/MSS.0000000000002523", "Maeo 2022": "https://doi.org/10.1080/17461391.2022.2100279", "Kassiano 2025": "https://doi.org/10.1055/a-2517-0509", "Kinoshita 2026": "https://doi.org/10.1249/MSS.0000000000003957", "Kinoshita 2023": "https://doi.org/10.3389/fphys.2023.1272106", "Plotkin 2023": "https://doi.org/10.3389/fphys.2023.1279170", "Larsen 2025": "https://doi.org/10.3389/fphys.2025.1611468", "Andersen 2014": "https://pubmed.ncbi.nlm.nih.gov/24662157/", "Rodríguez-Ridao 2020": "https://doi.org/10.3390/ijerph17197339", "Bloomquist 2013": "https://doi.org/10.1007/s00421-013-2642-7", "Kubo 2019": "https://doi.org/10.1007/s00421-019-04181-y", "Wolf 2025": "https://doi.org/10.7717/peerj.18904", "Gschneidner 2025": "https://doi.org/10.51224/SRXIV.485", "Roberts 2020": "https://doi.org/10.1519/JSC.0000000000003521", "Refalo 2025": "https://doi.org/10.7717/peerj.19042"};
   const CIT = /(?<!\p{L})(\p{Lu}[\p{Ll}'’]+(?:-\p{Lu}\p{Ll}+)?(?: et al\.)? (?:19|20)\d{2}(?:, preprint)?)/gu;
   function grifa(root) {
     const t1 = new RegExp(CIT.source, 'u'), nos = [];
     const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: n => !n.parentElement || n.parentElement.closest('.cit,script,style,svg,button,textarea,.modal') || !t1.test(n.data) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
     while (w.nextNode()) nos.push(w.currentNode);
+    const C = CIT.source.replace('(?<!\\p{L})(', '(?:'), PAR = new RegExp('\\((' + C + '(?:; ' + C + ')*)\\)', 'gu');
     for (const n of nos) {
-      const fr = document.createDocumentFragment();
+      const fr = document.createDocumentFragment(), tx = n.data.replace(PAR, '$1');
       let i = 0;
-      n.data.replace(CIT, (m, g, at) => {
-        const par = n.data[at - 1] === '(' && n.data[at + m.length] === ')';
-        const ini = par ? at - 1 : at;
-        if (ini > i) fr.append(n.data.slice(i, ini));
+      tx.replace(CIT, (m, g, at) => {
+        if (at > i) fr.append(tx.slice(i, at));
         const url = REFS[m.replace(/, preprint$/, '')];
         const k = document.createElement(url ? 'a' : 'mark');
         k.className = 'cit';
-        k.textContent = m;
+        k.textContent = m.replace(/ ((?:19|20)\d{2})/, ', $1');
         if (url) { k.href = url; k.target = '_blank'; k.rel = 'noopener'; k.title = 'Abrir o estudo'; }
         fr.append(k);
-        i = at + m.length + (par ? 1 : 0);
+        i = at + m.length;
         return m;
       });
-      if (i < n.data.length) fr.append(n.data.slice(i));
+      if (i < tx.length) fr.append(tx.slice(i));
       n.replaceWith(fr);
     }
   }
@@ -1387,7 +1435,7 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     $('#hver').textContent = `Ver as outras divisões pra ${nd} dias`;
   }
 
-  const PASSOS = [['Sua semana', 'Dias, tempo e experiência. Isso decide a divisão e quanto volume cabe.'], ['Sua academia', 'Marque o que a sua academia tem. O gerador só usa esses aparelhos.'], ['Foco e divisão', 'Escolha o foco de cada músculo. A divisão sai sozinha, mas dá pra trocar.']];
+  const PASSOS = [['Sua semana', 'Perfil do treino, dias, tempo e experiência. Isso decide a divisão e quanto volume cabe.'], ['Sua academia', 'Marque o que a sua academia tem. O gerador só usa esses aparelhos.'], ['Foco e divisão', 'Escolha o foco de cada músculo. A divisão sai sozinha, mas dá pra trocar.']];
   function renderPassos() {
     const p = st.passo;
     $('#montar').dataset.passo = p;
@@ -1396,7 +1444,7 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     document.querySelectorAll('#montar [data-step]').forEach(el => { el.hidden = +el.dataset.step !== p; });
     const info = R.erro ? esc(R.erro) : `${esc(R.split.nome)}, ${R.an.total} séries por semana`;
     const volta = p > 1 ? `<button type="button" class="btn sm ghost" data-passo-ir="${p - 1}">Voltar</button>` : '';
-    const vai = p < 3 ? `<button type="button" class="btn sm" data-passo-ir="${p + 1}">Continuar</button>` : '<button type="button" class="btn sm" id="gerar">Gerar ficha</button>';
+    const vai = p < 3 ? `<button type="button" class="btn sm pri" data-passo-ir="${p + 1}">Continuar</button>` : '<button type="button" class="btn sm pri" id="gerar">Gerar ficha</button>';
     $('#bar').innerHTML = `<span>Passo ${p} de 3<b>${info}</b></span><span class="acoes">${volta}${vai}</span>`;
   }
 
@@ -1450,7 +1498,7 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     const quebra = h => { if (y + h > H - 16) { d.addPage(); y = 18; } };
     d.setLineHeightFactor(1.25);
     let y = 20;
-    fonte(24, 1); d.text('Ficha de treino', M, y); y += 8;
+    fonte(24, 1); d.text('gymas · ficha de treino', M, y); y += 8;
     fonte(10.5, 0, [90, 90, 85]);
     const sub = d.splitTextToSize(T(`${R.split.nome} · ${R.sessoes.map(S => F.DIAS[S.dia]).join(', ')} · ${c.dur} min · ${F.NIVEL[c.nivel].nome} · ${R.an.total} séries diretas por semana`), W);
     d.text(sub, M, y); y += sub.length * lh(10.5) + 4;
@@ -1521,7 +1569,7 @@ if (typeof module !== 'undefined') module.exports = FICHA;
     try {
       await lib(tipo);
       const data = tipo === 'pdf' ? pdf() : xlsx();
-      await DL.save({ filename: tipo === 'pdf' ? 'ficha-de-treino.pdf' : 'ficha-de-treino.xlsx', data });
+      await DL.save({ filename: tipo === 'pdf' ? 'gymas-ficha-de-treino.pdf' : 'gymas-ficha-de-treino.xlsx', data });
       setStatus(tipo === 'pdf' ? 'PDF salvo.' : 'Planilha salva.');
     } catch (e) {
       const c = e && e.code;
@@ -1598,6 +1646,7 @@ if (typeof module !== 'undefined') module.exports = FICHA;
         if (d.k === 'dur') c.dur = +d.v;
         else if (d.k === 'nivel') c.nivel = d.v;
         else if (d.k === 'atual') c.atual = d.v;
+        else if (d.k === 'perfil') { if (c.perfil !== d.v) { c.perfil = d.v; c.tiers = { ...TIERS_PERFIL[d.v] }; } }
         else if (d.k === 'split') c.split = d.v;
         else if (d.k === 'preset' && d.v !== 'custom') { c.preset = d.v; c.eq = F.PRESETS[d.v].eq.slice(); c.halter = F.PRESETS[d.v].halter; }
         else if (d.k === 'halter') { c.halter = +d.v; c.preset = presetIgual(c); }
